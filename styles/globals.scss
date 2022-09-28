@@ -1,0 +1,51 @@
+@import "./variables";
+@import "./libs/normalize";
+
+@font-face {
+  font-family: "BtutalType";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/BrutalType/BrutalType-Regular.woff2") format("woff2"),
+    url("../fonts/BrutalType/BrutalType-Regular.woff") format("woff"),
+    url("../fonts/BrutalType/BrutalType-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "BtutalType";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/BrutalType/BrutalType-Medium.woff2") format("woff2"),
+    url("../fonts/BrutalType/BrutalType-Medium.woff") format("woff"),
+    url("../fonts/BrutalType/BrutalType-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "BtutalType";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/BrutalType/BrutalType-ExtraBold.woff2") format("woff2"),
+    url("../fonts/BrutalType/BrutalType-ExtraBold.woff") format("woff"),
+    url("../fonts/BrutalType/BrutalType-ExtraBold.ttf") format("truetype");
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+
+  font-family: "BrutalType", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+  }
+}

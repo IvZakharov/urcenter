@@ -1,0 +1,93 @@
+@import "styles/variables";
+
+.priceSection {
+  padding: 70px 0;
+  background-color: $primary;
+
+  .title {
+    font-weight: 400;
+    font-size: 45px;
+    line-height: 56px;
+    letter-spacing: 1.5px;
+    color: #ffffff;
+    margin-bottom: 30px;
+  }
+
+  .subtitle {
+    font-size: 20px;
+    line-height: 25px;
+    /* identical to box height */
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.583333px;
+    color: #03baff;
+
+    margin-bottom: 30px;
+
+    @media (min-width: 768px) {
+      font-size: 22px;
+    }
+  }
+
+  .price {
+    font-weight: 400;
+    font-size: 80px;
+    line-height: 99px;
+    /* identical to box height */
+    letter-spacing: 0.02em;
+    color: $secondary;
+    margin-bottom: 25px;
+
+    span {
+      color: #fff;
+    }
+  }
+
+  .description {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.64px;
+    color: #ffffff;
+  }
+
+  .list {
+    margin-bottom: 60px;
+
+    @media (min-width: 768px) {
+      margin-bottom: 0;
+    }
+
+    li {
+      font-weight: 400;
+      font-size: 14px;
+      padding: 15px 0 15px 30px;
+      line-height: 17px;
+      position: relative;
+      letter-spacing: 0.523636px;
+      color: #ffffff;
+      border-bottom: 2px dashed rgba(#dfdfdf, 0.3);
+
+      @media (min-width: 768px) {
+        padding: 25px 0 25px 50px;
+        font-size: 18px;
+      }
+
+      &:before,
+      &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 12px;
+        height: 2px;
+        background-color: #fff;
+        border-radius: 2px;
+      }
+
+      &:after {
+        transform: rotate(90deg);
+      }
+    }
+  }
+}

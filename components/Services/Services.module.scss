@@ -1,0 +1,132 @@
+@import "styles/variables";
+
+.services {
+  .section {
+    background-color: $primary-light;
+    padding: 30px 20px 60px;
+    height: 100%;
+
+    &:nth-child(2n) {
+      background-color: #fff;
+    }
+
+    @media (min-width: 768px) {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+  }
+
+  .subtitle {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: $primary;
+    margin-bottom: 25px;
+  }
+
+  .title {
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 39px;
+    letter-spacing: 1px;
+    color: $primary;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .text {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    color: #000000;
+    margin-bottom: 30px;
+
+    @media (min-width: 768px) {
+      font-size: 24px;
+      line-height: 30px;
+    }
+
+    @media (min-width: 1200px) {
+      padding-right: 70px;
+    }
+  }
+
+  .registrationList {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+
+    li {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 25px;
+      /* identical to box height */
+      text-transform: uppercase;
+      letter-spacing: 0.165217px;
+      color: #5a37bd;
+    }
+
+    .dot {
+      margin: 0 5px;
+      width: 5px;
+      height: 5px;
+      background-color: $primary;
+      border-radius: 50%;
+    }
+  }
+
+  .list {
+    margin-bottom: 50px;
+
+    @media (min-width: 768px) {
+      margin-bottom: 0;
+    }
+
+    li {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 200%;
+      color: $primary;
+      position: relative;
+      padding-left: 20px;
+
+      &:before {
+        position: absolute;
+        content: "";
+        top: 18px;
+        left: 0;
+        width: 5px;
+        height: 5px;
+        border-radius: 100%;
+        background-color: $primary;
+      }
+    }
+  }
+
+  .img {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: block;
+    }
+  }
+
+  .servicesSwiper {
+    position: relative;
+    .arrowNext {
+      position: absolute;
+      top: 70px;
+      right: 0;
+      z-index: 10;
+    }
+
+    .arrowPrev {
+      position: absolute;
+      top: 70px;
+      left: 0;
+      z-index: 10;
+    }
+  }
+}

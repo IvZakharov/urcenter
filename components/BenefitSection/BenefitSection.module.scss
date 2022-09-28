@@ -1,0 +1,26 @@
+@import "styles/variables";
+
+.benefitSection {
+  padding: 60px 0;
+
+  .title {
+    font-size: 32px;
+    line-height: 39px;
+    letter-spacing: 1.125px;
+    margin-bottom: 30px;
+    color: #000000;
+  }
+
+  .description {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.64px;
+    color: #000;
+
+    @media (min-width: 768px) {
+      font-size: 22px;
+      line-height: 27px;
+    }
+  }
+}

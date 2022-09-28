@@ -1,0 +1,47 @@
+@import "styles/variables";
+
+.header {
+  z-index: 30;
+  background-color: $primary-light;
+
+  .logo {
+    position: relative;
+    z-index: 30;
+  }
+
+  .info {
+    display: none;
+    padding-top: 20px;
+    width: 100%;
+    order: 20;
+
+    ul {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+
+      li {
+        max-width: 80%;
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+
+        &:first-child {
+          padding-right: 12px;
+        }
+      }
+    }
+
+    .icon {
+      width: 20px;
+      display: flex;
+      justify-content: space-between;
+      margin-right: 5px;
+    }
+
+    .link {
+      font-weight: 400;
+      font-size: 12px;
+    }
+  }
+}

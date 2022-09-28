@@ -1,0 +1,31 @@
+@import "styles/variables";
+
+.servicesHero {
+  .title {
+    font-size: 26px;
+    line-height: 22px;
+    font-weight: 700;
+    letter-spacing: 1.125px;
+    color: #000;
+    margin-bottom: 30px;
+
+    @media (min-width: 768px) {
+      font-size: 45px;
+      line-height: 55px;
+      letter-spacing: 1.125px;
+      color: #000000;
+    }
+  }
+
+  .text {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 130%;
+    letter-spacing: 0.2px;
+    color: #000000;
+
+    @media (min-width: 768px) {
+      font-size: 22px;
+    }
+  }
+}

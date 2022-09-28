@@ -1,0 +1,55 @@
+@import "styles/variables";
+
+.resultSection {
+  padding: 60px 0;
+  background-color: #4828a3;
+
+  @media (min-width: 768px) {
+    padding: 20px 0;
+  }
+
+  .title {
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 43px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: $secondary;
+    margin-bottom: 10px;
+    text-align: center;
+
+    @media (min-width: 768px) {
+      text-align: left;
+    }
+  }
+
+  .description {
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+    text-align: center;
+    letter-spacing: 0.64px;
+    color: #ffffff;
+
+    @media (min-width: 768px) {
+      text-align: left;
+    }
+  }
+
+  .inner {
+    @media (min-width: 768px) {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+    }
+    @media (min-width: 1200px) {
+      gap: 100px;
+    }
+  }
+
+  .imgWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
