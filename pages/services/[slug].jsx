@@ -98,7 +98,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { page: pagesRes.data[0], categories: categoriesRes.data, info: infoRes.data },
-    revalidate: 10,
+    revalidate: 1,
   };
 }
 
