@@ -82,7 +82,7 @@ export async function getStaticPaths() {
         slug: page.attributes.slug,
       },
     })),
-    fallback: false,
+    fallback: true,
   };
 }
 
@@ -98,7 +98,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { page: pagesRes.data[0], categories: categoriesRes.data, info: infoRes.data },
-    revalidate: 1,
+    revalidate: 10,
   };
 }
 
