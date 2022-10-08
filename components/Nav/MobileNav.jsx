@@ -1,8 +1,7 @@
 import styles from './Nav.module.scss';
 import React from 'react';
-import { useMediaQuery, Container, Grid, Box, Button } from '@mui/material';
+import { useMediaQuery, Grid, Box } from '@mui/material';
 import registrationLinks from '../../data/registrationLinks';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 const MainNav = () => {
   const matches = useMediaQuery('(min-width: 1200px)');

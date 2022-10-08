@@ -8,8 +8,7 @@ import ContactsInfo from '../ContactsInfo/ContactsInfo';
 import MainNav from '../Nav/MainNav';
 import Link from 'next/link';
 
-const Header = ({ onClickOpen }) => {
-  const matchesMd = useMediaQuery('(min-width: 768px)');
+const Header = ({ onClickOpen, categories, info }) => {
   const matchesLg = useMediaQuery('(min-width: 1200px)');
   const materialStyles = {
     wrapper: {
@@ -38,8 +37,8 @@ const Header = ({ onClickOpen }) => {
               <MenuRoundedIcon fontSize="large" sx={{ color: '#000' }} />
             </IconButton>
           )}
-          {matchesLg && <MainNav />}
-          {matchesLg && <ContactsInfo address phone align={'right'} />}
+          {matchesLg && <MainNav categories={categories} />}
+          {matchesLg && <ContactsInfo info={info} address phone align={'right'} />}
         </Box>
       </Container>
     </header>
