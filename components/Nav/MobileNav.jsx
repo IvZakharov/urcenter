@@ -1,11 +1,11 @@
-import styles from "./Nav.module.scss";
-import React from "react";
-import { useMediaQuery, Container, Grid, Box, Button } from "@mui/material";
-import permalinks from "../../data/permalinks";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import styles from './Nav.module.scss';
+import React from 'react';
+import { useMediaQuery, Container, Grid, Box, Button } from '@mui/material';
+import registrationLinks from '../../data/registrationLinks';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 const MainNav = () => {
-  const matches = useMediaQuery("(min-width: 1200px)");
+  const matches = useMediaQuery('(min-width: 1200px)');
 
   return (
     <nav className={styles.mobileNav}>
@@ -14,7 +14,7 @@ const MainNav = () => {
           <a> Услуги центра </a>
           <Box className={styles.submenu}>
             <Grid container spacing={2}>
-              {permalinks.map((obj, idx) => (
+              {registrationLinks.map((obj, idx) => (
                 <Grid item xs={12} md={6} key={idx}>
                   <h4>{obj.category}</h4>
                   <ul>

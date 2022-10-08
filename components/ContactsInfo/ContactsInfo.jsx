@@ -1,25 +1,23 @@
-import styles from "./ContactsInfo.module.scss";
-import React from "react";
-import { Box } from "@mui/material";
+import styles from './ContactsInfo.module.scss';
+import React from 'react';
+import { Box } from '@mui/material';
 
-const ContactsInfo = ({ address, phone, email, align }) => {
+const ContactsInfo = ({ info, address, phone, email, align }) => {
   return (
     <Box className={styles.contactsInfo}>
       <ul>
         {address && (
           <li
             style={{
-              justifyContent: align === "right" ? "flex-end" : "flex-start",
-            }}
-          >
+              justifyContent: align === 'right' ? 'flex-end' : 'flex-start',
+            }}>
             <i className={styles.icon}>
               <svg
                 width="16"
                 height="21"
                 viewBox="0 0 16 21"
                 fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+                xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M8 11C9.65685 11 11 9.65685 11 8C11 6.34315 9.65685 5 8 5C6.34315 5 5 6.34315 5 8C5 9.65685 6.34315 11 8 11Z"
                   stroke="#F6296F"
@@ -36,25 +34,24 @@ const ContactsInfo = ({ address, phone, email, align }) => {
                 />
               </svg>
             </i>
-            <a href="#" className={styles.link}>
-              г. Москва, Скатертный переулок, дом 5 стр. 2, каб. 4
+
+            <a target="_blank" href={info && info.attributes.addressLink} className={styles.link}>
+              {info && info.attributes.address}
             </a>
           </li>
         )}
         {phone && (
           <li
             style={{
-              justifyContent: align === "right" ? "flex-end" : "flex-start",
-            }}
-          >
+              justifyContent: align === 'right' ? 'flex-end' : 'flex-start',
+            }}>
             <i className={styles.icon}>
               <svg
                 width="18"
                 height="18"
                 viewBox="0 0 18 18"
                 fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+                xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#clip0_106_411)">
                   <path
                     d="M0.75 17.25L2.2625 13.7667C1.10536 12.1241 0.587445 10.1156 0.805958 8.1183C1.02447 6.12095 1.96439 4.27199 3.44932 2.91843C4.93424 1.56486 6.8621 0.799728 8.8711 0.766624C10.8801 0.733519 12.8321 1.43472 14.3608 2.73862C15.8896 4.04253 16.8899 5.85951 17.1741 7.84858C17.4583 9.83765 17.0068 11.8621 15.9044 13.5419C14.802 15.2218 13.1245 16.4416 11.1866 16.9724C9.24873 17.5032 7.18374 17.3086 5.37917 16.425L0.75 17.25"
@@ -79,11 +76,10 @@ const ContactsInfo = ({ address, phone, email, align }) => {
               </svg>
             </i>
             <a
-              href="#"
+              href={`tel:${info && info.attributes.phoneLInk}`}
               className={styles.link}
-              style={{ whiteSpace: "nowrap" }}
-            >
-              8 (903) 968 33 11
+              style={{ whiteSpace: 'nowrap' }}>
+              {info && info.attributes.phone}
             </a>
           </li>
         )}

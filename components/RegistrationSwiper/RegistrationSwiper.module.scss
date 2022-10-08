@@ -2,19 +2,65 @@
 
 .registrationSwiper {
   position: relative;
-  padding: 30px;
   background-color: $primary-light;
+  padding: 60px 0;
+
   .arrowNext {
     position: absolute;
-    top: 70px;
-    right: 0;
+    top: -6px;
+    right: -20px;
     z-index: 10;
   }
 
   .arrowPrev {
     position: absolute;
-    top: -20px;
-    left: -30px;
+    top: -6px;
+    left: -20px;
     z-index: 10;
+  }
+
+  .item {
+    padding: 0 20px;
+  }
+
+  .subtitle {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.5px;
+    color: #5a37bd;
+    margin-bottom: 25px;
+  }
+
+  .title,
+  .price {
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 39px;
+    letter-spacing: 1px;
+    color: #5a37bd;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .price {
+    opacity: 0.5;
+    white-space: nowrap;
+  }
+
+  .list {
+    padding: 15px 0;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+      border-bottom: 1px dashed #a997dd;
+
+      span {
+        max-width: 80%;
+      }
+    }
   }
 }

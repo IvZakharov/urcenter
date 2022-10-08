@@ -1,7 +1,12 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-}
+const configs = require('./configs.json');
 
-module.exports = nextConfig
+const nextConfig = {
+  reactStrictMode: false,
+  images: {
+    loader: 'default',
+    domains: [configs.STRAPI_DOMAIN],
+  },
+};
+
+module.exports = nextConfig;

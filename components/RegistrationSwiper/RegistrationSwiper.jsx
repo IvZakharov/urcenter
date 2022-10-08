@@ -62,12 +62,8 @@ const RegistrationSwiper = () => {
   return (
     <section className={styles.registrationSwiper}>
       <Container>
-        <Typography
-          mb={8}
-          sx={{ color: "primary.main", fontWeight: 700, fontSize: 18 }}
-        >
-          ВЫБЕРИТЕ КОМПЛЕКС УСЛУГ:
-        </Typography>
+        <h3 className={styles.subtitle}>ВЫБЕРИТЕ КОМПЛЕКС УСЛУГ:</h3>
+
         <Swiper
           navigation={{
             prevEl: arrowPrev.current,
@@ -77,7 +73,8 @@ const RegistrationSwiper = () => {
             swiper.params.navigation.prevEl = arrowPrev.current;
             swiper.params.navigation.nextEl = arrowNext.current;
           }}
-          loop={true}
+          loop={false}
+          slidesPerView={matches ? 2 : 1}
           modules={[Navigation]}
           autoHeight={true}
         >
@@ -91,14 +88,15 @@ const RegistrationSwiper = () => {
                     justifyContent: "space-between",
                   }}
                 >
-                  <h3 className={styles.name}>{obj.name}</h3>
-                  <span>{obj.price} ₽</span>
+                  <h2 className={styles.title}>{obj.name}</h2>
+                  <span className={styles.price}>{obj.price} ₽</span>
                 </Box>
 
-                <ul>
+                <ul className={styles.list}>
                   {obj.includes.map((item, idx) => (
                     <li key={idx}>
-                      <span>{item}</span> <CheckRoundedIcon />
+                      <span>{item}</span>{" "}
+                      <CheckRoundedIcon sx={{ color: "primary.main" }} />
                     </li>
                   ))}
                 </ul>

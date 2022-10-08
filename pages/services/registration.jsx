@@ -3,6 +3,7 @@ import ServicesHero from "../../components/ServicesHero/ServicesHero";
 import { useMediaQuery, Container, Grid, Button, Box } from "@mui/material";
 import RegistrationMobile from "../../components/RegistrationMobile/RegistrationMobile";
 import LetsTalk from "../../components/LetsTalk/LetsTalk";
+import RegistrationDesktop from "../../components/RegistrationDesktop/RegistrationDesktop";
 
 export default function Registration() {
   const matches = useMediaQuery("(min-width: 768px)");
@@ -12,7 +13,9 @@ export default function Registration() {
       <Box mb={3}>
         <ServicesHero title={"Регистрация"} />
       </Box>
+
       <RegistrationMobile />
+      <RegistrationDesktop />
       <LetsTalk />
     </MainLayout>
   );
