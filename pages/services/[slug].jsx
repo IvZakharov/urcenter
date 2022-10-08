@@ -10,7 +10,7 @@ import ResultSection from '../../components/ResultSection/ResultSection';
 import WhatNeedsSection from '../../components/WhatNeedsSection/WhatNeedsSection';
 import { fetchAPI } from '../../lib/api';
 
-const Page = ({ page }) => {
+const Page = ({ page, categories, info }) => {
   const matches = useMediaQuery('(min-width: 768px)');
   const featuresArr = [
     'Брачный договор регулирует режим собственности на имущество супругов как на уже имеющееся, так и на то имущество, которое будет приобретено и включено в совместно нажитое имущество',
@@ -29,7 +29,11 @@ const Page = ({ page }) => {
   console.log(page);
 
   return (
-    <MainLayout metaTitle={'Брачный договор'} metaDescription={'Брачный договор'}>
+    <MainLayout
+      categories={categories}
+      info={info}
+      metaTitle={'Брачный договор'}
+      metaDescription={'Брачный договор'}>
       <Box mb={matches ? 20 : 12}>
         <ServicesHero title={'Брачный договор'} />
       </Box>
@@ -89,9 +93,11 @@ export async function getStaticProps({ params }) {
     },
     populate: '*',
   });
+  const categoriesRes = await fetchAPI('/categories', { populate: '*' });
+  const infoRes = await fetchAPI('/info');
 
   return {
-    props: { page: pagesRes.data[0] },
+    props: { page: pagesRes.data[0], categories: categoriesRes.data, info: infoRes.data },
     revalidate: 1,
   };
 }
