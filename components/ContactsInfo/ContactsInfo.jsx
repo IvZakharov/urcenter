@@ -35,7 +35,11 @@ const ContactsInfo = ({ info, address, phone, email, align }) => {
               </svg>
             </i>
 
-            <a target="_blank" href={info && info.attributes.addressLink} className={styles.link}>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href={info && info.attributes.addressLink}
+              className={styles.link}>
               {info && info.attributes.address}
             </a>
           </li>
