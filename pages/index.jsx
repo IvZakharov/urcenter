@@ -6,9 +6,10 @@ import Services from '../components/Services';
 import LetsTalk from '../components/LetsTalk/LetsTalk';
 import { fetchAPI } from '../lib/api';
 
-const Home = ({ info, categories }) => {
+const Home = ({ info, categories, pages }) => {
   const matches = useMediaQuery('(min-width: 768px)');
   const matchesLg = useMediaQuery('(min-width: 1200px)');
+
   return (
     <MainLayout
       categories={categories}
@@ -59,7 +60,7 @@ export async function getStaticProps() {
     props: {
       info: infoRes.data,
       categories: categoriesRes.data,
-      pages: pagesRes.data,
+      pages: pagesRes,
     },
     revalidate: 1,
   };

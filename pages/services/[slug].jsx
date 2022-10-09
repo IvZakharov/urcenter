@@ -1,4 +1,5 @@
 import { MainLayout } from '../../layouts/MainLayout';
+import { useRouter } from 'next/router';
 import ServicesHero from '../../components/ServicesHero/ServicesHero';
 import { useMediaQuery, Container, Grid, Button, Box } from '@mui/material';
 import AboutServices from '../../components/AboutServices/AboutServices';
@@ -13,6 +14,11 @@ import BenefitSection from '../../components/BenefitSection/BenefitSection';
 
 const Page = ({ page, categories, info }) => {
   const matches = useMediaQuery('(min-width: 768px)');
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <h1>error</h1>;
+  }
 
   return (
     <MainLayout
@@ -78,10 +84,10 @@ export async function getStaticPaths() {
   return {
     paths: pagesRes.data.map((page) => ({
       params: {
-        slug: page.attributes?.slug,
+        slug: page.attributes.slug,
       },
     })),
-    fallback: false,
+    fallback: true,
   };
 }
 
