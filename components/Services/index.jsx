@@ -20,9 +20,9 @@ const ServicesMain = ({ categories }) => {
   const [categoriesList, setCategoriesList] = React.useState();
 
   React.useEffect(() => {
-    const basic = categories.find((obj) => obj.attributes.name === 'Основные услуги');
-    const changes = categories.find((obj) => obj.attributes.name === 'Внесение изменений');
-    const liquidation = categories.find((obj) => obj.attributes.name === 'Ликвидация');
+    const basic = categories.find((obj) => obj.attributes?.name === 'Основные услуги');
+    const changes = categories.find((obj) => obj.attributes?.name === 'Внесение изменений');
+    const liquidation = categories.find((obj) => obj.attributes?.name === 'Ликвидация');
 
     setCategoriesList({
       basic: basic.attributes.pages.data,

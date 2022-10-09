@@ -29,14 +29,14 @@ const MainNav = ({ categories }) => {
 
                 {categories &&
                   categories.map((page) => (
-                    <Grid item xs={12} md={6} key={page.attributes.name}>
-                      <h4>{page.attributes.name}</h4>
+                    <Grid item xs={12} md={6} key={page.attributes?.name}>
+                      <h4>{page.attributes?.name}</h4>
                       <ul>
-                        {page.attributes.pages.data &&
-                          page.attributes.pages.data.map((item, idx) => (
+                        {page.attributes?.pages.data &&
+                          page.attributes?.pages.data.map((item, idx) => (
                             <li key={idx}>
-                              <Link href={`/services/${item.attributes.slug}`}>
-                                <a>{item.attributes.title}</a>
+                              <Link href={`/services/${item.attributes?.slug}`}>
+                                <a>{item.attributes?.title}</a>
                               </Link>
                             </li>
                           ))}

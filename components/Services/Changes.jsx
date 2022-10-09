@@ -25,8 +25,8 @@ const Changes = ({ servicesList }) => {
               {servicesList
                 ? servicesList.map((obj) => (
                     <li key={obj.id}>
-                      <Link href={`/services/${obj.attributes.slug}`}>
-                        <a>{obj.attributes.title}</a>
+                      <Link href={`/services/${obj.attributes?.slug}`}>
+                        <a>{obj.attributes?.title}</a>
                       </Link>
                     </li>
                   ))

@@ -14,34 +14,18 @@ import BenefitSection from '../../components/BenefitSection/BenefitSection';
 const Page = ({ page, categories, info }) => {
   const matches = useMediaQuery('(min-width: 768px)');
 
-  console.log(page);
-
-  const featuresArr = [
-    'Брачный договор регулирует режим собственности на имущество супругов как на уже имеющееся, так и на то имущество, которое будет приобретено и включено в совместно нажитое имущество',
-    'Брачный договор составляется в письменном виде и удостоверяется нотариусом. При заключении соглашения между мужчиной и женщиной до вступления в брак, в законную силу соглашение вступает со дня регистрации брака',
-    'Брачный договор можно расторгнуть в любой момент по обоюдному соглашению супругов',
-  ];
-
-  const priceArr = [
-    'консультацию юриста, разъяснение супругам об их правах и обязанностях, значение и смысл договора',
-    'определение основных пунктов брачного соглашения',
-    'составление соглашения',
-  ];
-
-  const whatNeedArr = ['Оставить заявку на сайте', 'Прийти с документами в назначенное время'];
-
   return (
     <MainLayout
       categories={categories}
       info={info}
-      metaTitle={page.attributes.title}
+      metaTitle={page.attributes?.title}
       metaDescription={'Брачный договор'}>
       <Box mb={matches ? 20 : 12}>
-        <ServicesHero title={page.attributes.title} />
+        <ServicesHero title={page.attributes?.title} />
       </Box>
 
-      {page.attributes.blocks &&
-        page.attributes.blocks.map((obj, idx) => {
+      {page.attributes?.blocks &&
+        page.attributes?.blocks.map((obj, idx) => {
           switch (obj.__component) {
             case 'blocks.about':
               return (
@@ -94,10 +78,10 @@ export async function getStaticPaths() {
   return {
     paths: pagesRes.data.map((page) => ({
       params: {
-        slug: page.attributes.slug,
+        slug: page.attributes?.slug,
       },
     })),
-    fallback: true,
+    fallback: false,
   };
 }
 

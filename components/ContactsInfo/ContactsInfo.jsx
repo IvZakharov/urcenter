@@ -38,9 +38,9 @@ const ContactsInfo = ({ info, address, phone, email, align }) => {
             <a
               target="_blank"
               rel="noreferrer"
-              href={info && info.attributes.addressLink}
+              href={info && info.attributes?.addressLink}
               className={styles.link}>
-              {info && info.attributes.address}
+              {info && info.attributes?.address}
             </a>
           </li>
         )}
@@ -80,10 +80,10 @@ const ContactsInfo = ({ info, address, phone, email, align }) => {
               </svg>
             </i>
             <a
-              href={`tel:${info && info.attributes.phoneLInk}`}
+              href={`tel:${info && info.attributes?.phoneLInk}`}
               className={styles.link}
               style={{ whiteSpace: 'nowrap' }}>
-              {info && info.attributes.phone}
+              {info && info.attributes?.phone}
             </a>
           </li>
         )}
