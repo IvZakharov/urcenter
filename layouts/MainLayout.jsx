@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import React from 'react';
-import axios from 'axios';
 import { ThemeProvider } from '@mui/material';
+import { GlobalContext } from '../pages/_app';
 import { theme } from '../theme';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';

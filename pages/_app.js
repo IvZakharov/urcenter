@@ -1,20 +1,14 @@
-import "../styles/globals.scss";
-import { store, wrapper } from "../redux/store";
-import { Provider } from "react-redux";
-import NextNProgress from "nextjs-progressbar";
+import '../styles/globals.scss';
+import App from 'next/app';
+import NextNProgress from 'nextjs-progressbar';
 
-function App({ Component, pageProps }) {
+const myApp = ({ Component, pageProps }) => {
   return (
-    <Provider store={store}>
-      <NextNProgress
-        color="#5A37BD"
-        startPosition={0.3}
-        stopDelayMs={200}
-        height={3}
-      />
+    <>
+      <NextNProgress color="#5A37BD" startPosition={0.3} stopDelayMs={200} height={3} />
       <Component {...pageProps} />;
-    </Provider>
+    </>
   );
-}
+};
 
-export default wrapper.withRedux(App);
+export default myApp;

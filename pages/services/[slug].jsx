@@ -9,9 +9,13 @@ import GuaranteesSection from '../../components/GuaranteesSection/GuaranteesSect
 import ResultSection from '../../components/ResultSection/ResultSection';
 import WhatNeedsSection from '../../components/WhatNeedsSection/WhatNeedsSection';
 import { fetchAPI } from '../../lib/api';
+import BenefitSection from '../../components/BenefitSection/BenefitSection';
 
 const Page = ({ page, categories, info }) => {
   const matches = useMediaQuery('(min-width: 768px)');
+
+  console.log(page);
+
   const featuresArr = [
     'Брачный договор регулирует режим собственности на имущество супругов как на уже имеющееся, так и на то имущество, которое будет приобретено и включено в совместно нажитое имущество',
     'Брачный договор составляется в письменном виде и удостоверяется нотариусом. При заключении соглашения между мужчиной и женщиной до вступления в брак, в законную силу соглашение вступает со дня регистрации брака',
@@ -26,49 +30,60 @@ const Page = ({ page, categories, info }) => {
 
   const whatNeedArr = ['Оставить заявку на сайте', 'Прийти с документами в назначенное время'];
 
-  console.log(page);
-
   return (
     <MainLayout
       categories={categories}
       info={info}
-      metaTitle={'Брачный договор'}
+      metaTitle={page.attributes.title}
       metaDescription={'Брачный договор'}>
       <Box mb={matches ? 20 : 12}>
-        <ServicesHero title={'Брачный договор'} />
-      </Box>
-      <Box mb={matches ? 10 : 8}>
-        {' '}
-        <AboutServices />
+        <ServicesHero title={page.attributes.title} />
       </Box>
 
-      <NoteSection
-        description={
-          'Никто не застрахован от развода, но важно предупредить нежелательные последствия и застраховать себя в будущем, заключив брачный договор с супругом. '
-        }
-        image={true}
-      />
-
-      <SituationsSection
-        title={'Юридические нюансы брачного договора  '}
-        description={
-          'Неграмотно составленный брачный договор впоследствии может быть признан недействительным, лишая одну из сторон преимуществ, изложенных в тексте документа\n' +
-          'при его подписании. '
-        }
-        subtitle={'Особенности брачного договора, которые необходимо знать до его заключения:'}
-        list={featuresArr}
-      />
-
-      <PriceSection
-        title={'Стоимость услуги'}
-        price={3000}
-        description={''}
-        subtitle={'Услуга включает в себя'}
-        list={priceArr}
-      />
-      <GuaranteesSection />
-      <WhatNeedsSection items={whatNeedArr} />
-      <ResultSection />
+      {page.attributes.blocks &&
+        page.attributes.blocks.map((obj, idx) => {
+          switch (obj.__component) {
+            case 'blocks.about':
+              return (
+                <Box key={idx} mb={matches ? 10 : 8}>
+                  <AboutServices columnOne={obj.column1} columnTwo={obj.column2} />
+                </Box>
+              );
+            case 'blocks.note':
+              return <NoteSection key={idx} description={obj.text} image={obj.icon} />;
+            case 'blocks.section-with-list':
+              return (
+                <SituationsSection
+                  key={idx}
+                  title={obj.title}
+                  description={obj.text}
+                  subtitle={obj.listTitle}
+                  list={[obj.sectionList]}
+                />
+              );
+            case 'blocks.price':
+              return (
+                <PriceSection
+                  key={idx}
+                  title={'Стоимость услуги'}
+                  price={obj.price}
+                  description={obj.additional}
+                  subtitle={obj.listTitle}
+                  list={obj.list}
+                />
+              );
+            case 'blocks.guarantee':
+              return <GuaranteesSection key={idx} />;
+            case 'blocks.what-need':
+              return <WhatNeedsSection key={idx} items={obj.item} />;
+            case 'blocks.benefits':
+              return <BenefitSection key={idx} description={obj.text} />;
+            case 'blocks.result':
+              return <ResultSection key={idx} description={obj.text} />;
+            default:
+              break;
+          }
+        })}
     </MainLayout>
   );
 };
@@ -91,7 +106,7 @@ export async function getStaticProps({ params }) {
     filters: {
       slug: params.slug,
     },
-    populate: '*',
+    populate: 'deep',
   });
   const categoriesRes = await fetchAPI('/categories', { populate: '*' });
   const infoRes = await fetchAPI('/info');

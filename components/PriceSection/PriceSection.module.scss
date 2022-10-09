@@ -1,4 +1,4 @@
-@import "styles/variables";
+@import 'styles/variables';
 
 .priceSection {
   padding: 70px 0;
@@ -41,6 +41,11 @@
     span {
       color: #fff;
     }
+
+    small {
+      color: #fff;
+      font-size: 44px;
+    }
   }
 
   .description {
@@ -75,7 +80,7 @@
 
       &:before,
       &:after {
-        content: "";
+        content: '';
         position: absolute;
         top: 50%;
         left: 0;
