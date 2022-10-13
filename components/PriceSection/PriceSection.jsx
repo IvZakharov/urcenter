@@ -11,10 +11,16 @@ const PriceSection = ({ title, price, description, subtitle, list }) => {
         <Grid container spacing={matches ? 6 : 3}>
           <Grid item xs={12} md={6}>
             <h2 className={styles.title}>{title}</h2>
-            <p className={styles.price}>
-              <small>от</small> {price} <span>₽</span>
-            </p>
-            <p className={styles.description}>{description}</p>
+
+            {price &&
+              price.map((obj, idx) => (
+                <Box key={idx} mb={2}>
+                  <p className={styles.price}>
+                    <small>от</small> {obj.price} <span> ₽</span>
+                  </p>
+                  <p className={styles.description}>{obj.text}</p>
+                </Box>
+              ))}
           </Grid>
           <Grid item xs={12} md={6}>
             <h3 className={styles.subtitle}>{subtitle}</h3>

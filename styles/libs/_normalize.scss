@@ -18,13 +18,11 @@ span {
 }
 
 body {
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
   color: $text;
   height: 100%;
 }
 
-input[type="number"] {
+input[type='number'] {
   -moz-appearance: textfield; /* Firefox */
 }
 
@@ -58,7 +56,6 @@ h1 {
 }
 
 h2 {
-  font-weight: 600;
   font-size: 28px;
   line-height: 30px;
 }

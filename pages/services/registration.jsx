@@ -1,21 +1,19 @@
-import { MainLayout } from "../../layouts/MainLayout";
-import ServicesHero from "../../components/ServicesHero/ServicesHero";
-import { useMediaQuery, Container, Grid, Button, Box } from "@mui/material";
-import RegistrationMobile from "../../components/RegistrationMobile/RegistrationMobile";
-import LetsTalk from "../../components/LetsTalk/LetsTalk";
-import RegistrationDesktop from "../../components/RegistrationDesktop/RegistrationDesktop";
+import { MainLayout } from '../../layouts/MainLayout';
+import ServicesHero from '../../components/ServicesHero/ServicesHero';
+import { useMediaQuery, Container, Grid, Button, Box } from '@mui/material';
+import RegistrationMobile from '../../components/RegistrationMobile/RegistrationMobile';
+import LetsTalk from '../../components/LetsTalk/LetsTalk';
+import RegistrationDesktop from '../../components/RegistrationDesktop/RegistrationDesktop';
 
 export default function Registration() {
-  const matches = useMediaQuery("(min-width: 768px)");
+  const matches = useMediaQuery('(min-width: 1200px)');
 
   return (
-    <MainLayout metaTitle={"Регистрация"} metaDescription={"Регистрация"}>
+    <MainLayout metaTitle={'Регистрация'} metaDescription={'Регистрация'}>
       <Box mb={3}>
-        <ServicesHero title={"Регистрация"} />
+        <ServicesHero title={'Регистрация'} />
       </Box>
-
-      <RegistrationMobile />
-      <RegistrationDesktop />
+      {matches ? <RegistrationDesktop /> : <RegistrationMobile />}
       <LetsTalk />
     </MainLayout>
   );

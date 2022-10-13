@@ -3,6 +3,19 @@
 .priceSection {
   padding: 70px 0;
   background-color: $primary;
+  position: relative;
+
+  @media (min-width: 1200px) {
+    &:before {
+      position: absolute;
+      content: '';
+      left: 0;
+      top: 0;
+      width: 85px;
+      height: 100%;
+      background-color: white;
+    }
+  }
 
   .title {
     font-weight: 400;
@@ -31,12 +44,17 @@
 
   .price {
     font-weight: 400;
-    font-size: 80px;
-    line-height: 99px;
+    font-size: 60px;
+    line-height: 80px;
     /* identical to box height */
     letter-spacing: 0.02em;
     color: $secondary;
-    margin-bottom: 25px;
+    white-space: nowrap;
+
+    @media (min-width: 768px) {
+      font-size: 80px;
+      line-height: 99px;
+    }
 
     span {
       color: #fff;
@@ -54,6 +72,11 @@
     line-height: 22px;
     letter-spacing: 0.64px;
     color: #ffffff;
+
+    @media (min-width: 768px) {
+      font-size: 22px;
+      line-height: 26px;
+    }
   }
 
   .list {

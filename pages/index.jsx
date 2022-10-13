@@ -43,7 +43,6 @@ const Home = ({ info, categories, pages }) => {
         </Container>
       </Box>
       <Services categories={categories} />
-      <LetsTalk />
     </MainLayout>
   );
 };

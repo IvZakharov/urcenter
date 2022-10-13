@@ -6,6 +6,7 @@ import { theme } from '../theme';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import MobileMenu from '../components/MobileMenu/MobileMenu';
+import LetsTalk from '../components/LetsTalk/LetsTalk';
 
 export const MainLayout = ({
   children,
@@ -28,6 +29,7 @@ export const MainLayout = ({
       <Header categories={categories} info={info} onClickOpen={() => setMobileMenuOpen(true)} />
 
       <div className="main">{children}</div>
+      <LetsTalk />
       <Footer info={info} />
 
       <MobileMenu

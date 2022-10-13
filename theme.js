@@ -1,27 +1,29 @@
-import { createTheme } from "@mui/material/styles";
+import { createTheme } from '@mui/material/styles';
 
 export const theme = createTheme({
   palette: {
     primary: {
-      light: "#F9F8FD",
-      main: "#5A37BD",
+      light: '#F9F8FD',
+      main: '#5A37BD',
     },
     secondary: {
-      main: "#03BAFF",
+      main: '#03BAFF',
     },
   },
-
+  typography: {
+    fontFamily: `'BrutalType', 'Helvetica', 'Arial', 'sans-serif'`,
+  },
   components: {
     MuiButton: {
       defaultProps: {
-        variant: "contained",
+        variant: 'contained',
       },
       styleOverrides: {
         root: {
           borderRadius: 30,
-          fontFamily: "BrutalType",
-          textTransform: "none",
-          padding: "10px 30px",
+          fontFamily: `'BrutalType', 'Helvetica', 'Arial', 'sans-serif'`,
+          textTransform: 'none',
+          padding: '10px 30px',
           fontWeight: 700,
           paddingX: 30,
           fontSize: 16,

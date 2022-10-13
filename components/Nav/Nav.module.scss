@@ -13,7 +13,7 @@
       margin-bottom: 50px;
 
       &:first-child {
-        a {
+        span {
           margin-bottom: 20px;
         }
       }
@@ -22,14 +22,13 @@
         margin-bottom: 0;
       }
 
-      a {
+      span {
         cursor: pointer;
-        font-size: 14px;
+        font-size: 16px;
         line-height: 17px;
         letter-spacing: 0.7px;
         text-transform: uppercase;
         color: #000000;
-        font-weight: 700;
         display: block;
       }
     }
@@ -63,7 +62,7 @@
       &:last-child {
         margin-right: 0;
       }
-      a {
+      span {
         cursor: pointer;
         font-size: 14px;
         line-height: 17px;
@@ -77,14 +76,9 @@
 
     .dropdown {
       height: 100%;
-      a {
-        display: flex;
-        align-items: center;
-      }
 
-      &:hover .submenu {
-        opacity: 1;
-        visibility: visible;
+      span {
+        line-height: 26px;
       }
     }
   }
@@ -98,8 +92,6 @@
     padding: 60px 0;
     background-color: $primary-light;
     z-index: 20;
-    opacity: 0;
-    visibility: hidden;
     transition: all 0.2s ease-in-out;
 
     h4 {
@@ -121,12 +113,8 @@
           font-size: 16px;
           line-height: 20px;
           transition: color 0.2s ease-in-out;
-          text-transform: lowercase;
-          display: block;
 
-          &:first-letter {
-            text-transform: uppercase;
-          }
+          display: block;
 
           &:hover {
             color: $primary;

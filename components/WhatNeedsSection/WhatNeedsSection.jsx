@@ -1,23 +1,22 @@
 import styles from './WhatNeedsSection.module.scss';
 import React from 'react';
 import { useMediaQuery, Container, Grid, Box, Button } from '@mui/material';
-import Image from 'next/image';
-import imageSvg from './img/1.svg';
 
-const WhatNeedsSection = ({ items }) => {
+const WhatNeedsSection = ({ title, text, items }) => {
   const matches = useMediaQuery('(min-width: 768px)');
 
   return (
     <section className={styles.whatNeedsSection}>
       <Container>
-        <h2 className={styles.title}>Что от вас потребуется?</h2>
-        <Grid container spacing={6} justifyContent={'center'}>
+        <h2 className={styles.title}>{title}</h2>
+        <p className={styles.text}>{text}</p>
+        <Grid container spacing={6}>
           {items &&
             items.map((obj, idx) => (
-              <Grid key={idx} item xs={8} md={4} lg={3}>
+              <Grid key={idx} item xs={12} md={6} lg={4}>
                 <Box className={styles.item}>
-                  <span>{idx + 1}</span>
-                  <h3>{obj.item}</h3>
+                  <h3>{obj.title}</h3>
+                  <p>{obj.text}</p>
                 </Box>
               </Grid>
             ))}

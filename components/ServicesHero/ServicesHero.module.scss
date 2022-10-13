@@ -1,4 +1,4 @@
-@import "styles/variables";
+@import 'styles/variables';
 
 .servicesHero {
   padding-top: 100px;
@@ -11,9 +11,9 @@
     color: #000000;
     text-align: left;
 
-    @media (min-width: 1200px) {
-      font-size: 72px;
-      line-height: 89px;
+    @media (min-width: 768px) {
+      font-size: 58px;
+      line-height: 62px;
       text-align: center;
       letter-spacing: 3.6px;
     }

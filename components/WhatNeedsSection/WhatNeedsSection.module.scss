@@ -1,4 +1,4 @@
-@import "styles/variables";
+@import 'styles/variables';
 
 .whatNeedsSection {
   padding: 60px 0;
@@ -8,32 +8,50 @@
     font-weight: 400;
     font-size: 32px;
     line-height: 39px;
-    text-align: center;
     letter-spacing: 1.125px;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 
     @media (min-width: 768px) {
       font-size: 46px;
       line-height: 56px;
-      margin-bottom: 100px;
+      margin-bottom: 40px;
+    }
+  }
+
+  .text {
+    display: block;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+    letter-spacing: 0.64px;
+    color: #000000;
+    margin-bottom: 30px;
+
+    @media (min-width: 768px) {
+      margin-bottom: 50px;
+    }
+
+    @media (min-width: 1200px) {
+      max-width: 60%;
     }
   }
 
   .item {
-    display: flex;
     align-items: center;
     gap: 30px;
-    span {
-      display: block;
-      width: 40px;
-      font-weight: 400;
-      font-size: 72px;
-      line-height: 89px;
-      letter-spacing: 3.6px;
-      color: #000000;
-    }
 
     h3 {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 35px;
+      line-height: 40px;
+      /* identical to box height, or 160% */
+      letter-spacing: 1.5px;
+      color: #5a37bd;
+      margin-bottom: 10px;
+    }
+
+    p {
       font-weight: 400;
       font-size: 18px;
       line-height: 22px;

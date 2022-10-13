@@ -1,7 +1,7 @@
 import { MainLayout } from '../../layouts/MainLayout';
 import { useRouter } from 'next/router';
 import ServicesHero from '../../components/ServicesHero/ServicesHero';
-import { useMediaQuery, Container, Grid, Button, Box } from '@mui/material';
+import { useMediaQuery, Box } from '@mui/material';
 import AboutServices from '../../components/AboutServices/AboutServices';
 import NoteSection from '../../components/NoteSection/NoteSection';
 import SituationsSection from '../../components/SituationsSection/SituationsSection';
@@ -11,15 +11,19 @@ import ResultSection from '../../components/ResultSection/ResultSection';
 import WhatNeedsSection from '../../components/WhatNeedsSection/WhatNeedsSection';
 import { fetchAPI } from '../../lib/api';
 import BenefitSection from '../../components/BenefitSection/BenefitSection';
+import RegistrationDesktop from '../../components/RegistrationDesktop/RegistrationDesktop';
+import RegistrationMobile from '../../components/RegistrationMobile/RegistrationMobile';
 
 const Page = ({ page, categories, info }) => {
   const matches = useMediaQuery('(min-width: 768px)');
+  const matchesLg = useMediaQuery('(min-width: 1200px)');
   const router = useRouter();
 
   if (router.isFallback) {
     return <h1>error</h1>;
   }
 
+  console.log(page);
   return (
     <MainLayout
       categories={categories}
@@ -48,7 +52,8 @@ const Page = ({ page, categories, info }) => {
                   title={obj.title}
                   description={obj.text}
                   subtitle={obj.listTitle}
-                  list={[obj.sectionList]}
+                  rightList={obj.rightList}
+                  leftList={obj.leftList}
                 />
               );
             case 'blocks.price':
@@ -62,10 +67,28 @@ const Page = ({ page, categories, info }) => {
                   list={obj.list}
                 />
               );
+            case 'blocks.price-table':
+              return matchesLg ? (
+                <RegistrationDesktop
+                  key={idx}
+                  text={obj.text}
+                  priceObj={obj.price}
+                  tableRows={obj.tabelItem}
+                />
+              ) : (
+                <RegistrationMobile
+                  key={idx}
+                  text={obj.text}
+                  priceObj={obj.price}
+                  tableRows={obj.tabelItem}
+                />
+              );
             case 'blocks.guarantee':
               return <GuaranteesSection key={idx} />;
             case 'blocks.what-need':
-              return <WhatNeedsSection key={idx} items={obj.item} />;
+              return (
+                <WhatNeedsSection key={idx} title={obj.title} text={obj.text} items={obj.list} />
+              );
             case 'blocks.benefits':
               return <BenefitSection key={idx} description={obj.text} />;
             case 'blocks.result':
@@ -87,7 +110,7 @@ export async function getStaticPaths() {
         slug: page.attributes.slug,
       },
     })),
-    fallback: true,
+    fallback: false,
   };
 }
 
