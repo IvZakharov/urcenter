@@ -19,10 +19,6 @@ const Page = ({ page, categories, info }) => {
   const matchesLg = useMediaQuery('(min-width: 1200px)');
   const router = useRouter();
 
-  if (router.isFallback) {
-    return <h1>error</h1>;
-  }
-
   return (
     <MainLayout
       categories={categories}

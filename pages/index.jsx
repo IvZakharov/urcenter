@@ -10,6 +10,8 @@ const Home = ({ info, categories, pages }) => {
   const matches = useMediaQuery('(min-width: 768px)');
   const matchesLg = useMediaQuery('(min-width: 1200px)');
 
+  console.log(pages);
+
   return (
     <MainLayout
       categories={categories}
