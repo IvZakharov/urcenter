@@ -23,7 +23,6 @@ const Page = ({ page, categories, info }) => {
     return <h1>error</h1>;
   }
 
-  console.log(page);
   return (
     <MainLayout
       categories={categories}

@@ -11,7 +11,7 @@ export const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: `'BrutalType', 'Helvetica', 'Arial', 'sans-serif'`,
+    fontFamily: `'Brutal Type', 'Helvetica',  'sans-serif'`,
   },
   components: {
     MuiButton: {
@@ -21,7 +21,7 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 30,
-          fontFamily: `'BrutalType', 'Helvetica', 'Arial', 'sans-serif'`,
+          fontFamily: `'Brutal Type', 'Helvetica',  'sans-serif'`,
           textTransform: 'none',
           padding: '10px 30px',
           fontWeight: 500,

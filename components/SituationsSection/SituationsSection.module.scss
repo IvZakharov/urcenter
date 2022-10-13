@@ -41,13 +41,12 @@
   }
 
   .subtitle {
-    font-weight: 400;
+    font-weight: 500;
     font-size: 18px;
     line-height: 22px;
     letter-spacing: 0.64px;
     color: $primary;
     margin-bottom: 40px;
-    font-weight: 700;
 
     @media (min-width: 768px) {
       font-size: 22px;

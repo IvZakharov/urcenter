@@ -1,23 +1,18 @@
 @font-face {
-  font-family: 'BtutalType';
+  font-family: 'Brutal Type';
+  src: local('Brutal Type Medium'), local('Brutal-Type-Medium'),
+    url('/fonts/BrutalType-Medium.woff2') format('woff2'),
+    url('/fonts/BrutalType-Medium.woff') format('woff'),
+    url('/fonts/BrutalType-Medium.ttf') format('truetype');
+  font-weight: 500;
   font-style: normal;
+}
+
+@font-face {
+  font-family: 'Brutal Type';
+  src: local('Brutal Type Regular'), local('Brutal-Type-Regular'),
+    url('/fonts/BrutalType.woff2') format('woff2'), url('/fonts/BrutalType.woff') format('woff'),
+    url('/fonts/BrutalType.ttf') format('truetype');
   font-weight: 400;
-  src: url('/fonts/BrutalType/BrutalType-Regular.woff2') format('woff2'),
-    url('/fonts/BrutalType/BrutalType-Regular.ttf') format('ttf');
-}
-
-@font-face {
-  font-family: 'BtutalType';
   font-style: normal;
-  font-weight: normal;
-  src: url('/fonts/BrutalType/BrutalType-Medium.woff2') format('woff2'),
-    url('/fonts/BrutalType/BrutalType-Medium.ttf') format('ttf');
-}
-
-@font-face {
-  font-family: 'BtutalType';
-  font-style: normal;
-  font-weight: bold;
-  src: url('/fonts/BrutalType/BrutalType-ExtraBold.woff2') format('woff2'),
-    url('/fonts/BrutalType/BrutalType-ExtraBold.ttf') format('ttf');
 }
