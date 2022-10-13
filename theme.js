@@ -24,7 +24,7 @@ export const theme = createTheme({
           fontFamily: `'BrutalType', 'Helvetica', 'Arial', 'sans-serif'`,
           textTransform: 'none',
           padding: '10px 30px',
-          fontWeight: 700,
+          fontWeight: 500,
           paddingX: 30,
           fontSize: 16,
         },

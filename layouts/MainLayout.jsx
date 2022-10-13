@@ -25,6 +25,49 @@ export const MainLayout = ({
         <meta name="description" content={metaDescription} />
         <meta name="keywords" content={keywords} />
         <meta property="og:image" content="/img/head/meta.jpg" />
+        <link href="/fonts/style.css" rel="stylesheet" />
+        <link
+          rel="preload"
+          href="/fonts/BrutalType/BrutalType-Regular.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/BrutalType/BrutalType-Medium.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/BrutalType/BrutalType-ExtraBold.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/BrutalType/BrutalType-Regular.ttf"
+          as="font"
+          type="font/ttf"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/BrutalType/BrutalType-Medium.ttf"
+          as="font"
+          type="font/ttf"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/BrutalType/BrutalType-ExtraBold.ttf"
+          as="font"
+          type="font/ttf"
+          crossOrigin="anonymous"
+        />
       </Head>
       <Header categories={categories} info={info} onClickOpen={() => setMobileMenuOpen(true)} />
 

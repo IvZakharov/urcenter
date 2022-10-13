@@ -3,6 +3,7 @@ import React from 'react';
 import { Box } from '@mui/material';
 
 const ContactsInfo = ({ info, address, phone, email, align }) => {
+  console.log(info);
   return (
     <Box className={styles.contactsInfo}>
       <ul>
@@ -84,6 +85,49 @@ const ContactsInfo = ({ info, address, phone, email, align }) => {
               className={styles.link}
               style={{ whiteSpace: 'nowrap' }}>
               {info && info.attributes?.phone}
+            </a>
+          </li>
+        )}
+        {email && (
+          <li
+            style={{
+              justifyContent: align === 'right' ? 'flex-end' : 'flex-start',
+            }}>
+            <i className={styles.icon}>
+              <svg
+                width="18"
+                height="14"
+                viewBox="0 0 18 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <g clipPath="url(#clip0_479_866)">
+                  <path
+                    d="M15.4167 0.583496H2.58333C1.57081 0.583496 0.75 1.40431 0.75 2.41683V11.5835C0.75 12.596 1.57081 13.4168 2.58333 13.4168H15.4167C16.4292 13.4168 17.25 12.596 17.25 11.5835V2.41683C17.25 1.40431 16.4292 0.583496 15.4167 0.583496Z"
+                    stroke="#0058AF"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M0.75 2.4165L9 7.9165L17.25 2.4165"
+                    stroke="#0058AF"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_479_866">
+                    <rect width="18" height="14" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </i>
+            <a
+              href={`mailto:${info && info.attributes?.email}`}
+              className={styles.link}
+              style={{ whiteSpace: 'nowrap' }}>
+              {info && info.attributes?.email}
             </a>
           </li>
         )}

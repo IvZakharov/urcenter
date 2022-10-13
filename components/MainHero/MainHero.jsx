@@ -1,12 +1,13 @@
-import styles from "./MainHero.module.scss";
-import React from "react";
-import heroImg from "./img/hero.svg";
-import { useMediaQuery, Container, Grid, Button, Box } from "@mui/material";
-import Image from "next/image";
+import styles from './MainHero.module.scss';
+import React from 'react';
+import heroImg from './img/hero.svg';
+import { useMediaQuery, Container, Grid, Button, Box } from '@mui/material';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const MainHero = () => {
-  const matches = useMediaQuery("(min-width: 768px)");
-  const matchesLg = useMediaQuery("(min-width: 1200px)");
+  const matches = useMediaQuery('(min-width: 768px)');
+  const matchesLg = useMediaQuery('(min-width: 1200px)');
 
   return (
     <section className={styles.mainHero}>
@@ -19,9 +20,11 @@ const MainHero = () => {
                 Оставьте заявку и мы предложим лучшее решение вашего вопроса
               </p>
               <Box mb={5} sx={{ order: matchesLg ? 0 : 1 }}>
-                <a href={"#form"}>
-                  <Button variant="contained">Получить консультацию</Button>
-                </a>
+                <Link href={'/#form'} scroll={false}>
+                  <a>
+                    <Button variant="contained">Получить консультацию</Button>
+                  </a>
+                </Link>
               </Box>
               <ul className={styles.advantages}>
                 <li>
@@ -31,8 +34,7 @@ const MainHero = () => {
                       height="12"
                       viewBox="0 0 18 12"
                       fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
+                      xmlns="http://www.w3.org/2000/svg">
                       <g clipPath="url(#clip0_149_14)">
                         <path
                           d="M1.21875 6L6.375 11L16.6875 1"
@@ -59,8 +61,7 @@ const MainHero = () => {
                       height="12"
                       viewBox="0 0 18 12"
                       fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
+                      xmlns="http://www.w3.org/2000/svg">
                       <g clipPath="url(#clip0_149_14)">
                         <path
                           d="M1.21875 6L6.375 11L16.6875 1"
@@ -87,8 +88,7 @@ const MainHero = () => {
                       height="12"
                       viewBox="0 0 18 12"
                       fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
+                      xmlns="http://www.w3.org/2000/svg">
                       <g clipPath="url(#clip0_149_14)">
                         <path
                           d="M1.21875 6L6.375 11L16.6875 1"
