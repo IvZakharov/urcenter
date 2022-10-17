@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import React from 'react';
 import { ThemeProvider } from '@mui/material';
-import { GlobalContext } from '../pages/_app';
+
 import { theme } from '../theme';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
@@ -68,7 +68,7 @@ export const MainLayout = ({
           type="font/ttf"
           crossOrigin="anonymous"
         />
-        <link href="/fonts/style.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/fonts/style.css" />
       </Head>
       <Header categories={categories} info={info} onClickOpen={() => setMobileMenuOpen(true)} />
 

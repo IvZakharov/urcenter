@@ -115,7 +115,6 @@ export async function getStaticProps({ params }) {
       slug: params.slug,
     },
     populate: 'deep',
-    pagination: '[pageSize]=100',
   });
   const categoriesRes = await fetchAPI('/categories', { populate: '*' });
   const infoRes = await fetchAPI('/info');

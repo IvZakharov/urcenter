@@ -24,17 +24,15 @@ const Contacts = ({ info, categories }) => {
 
 export async function getStaticProps() {
   // Run API calls in parallel
-  const [infoRes, categoriesRes, pagesRes] = await Promise.all([
+  const [infoRes, categoriesRes] = await Promise.all([
     fetchAPI('/info'),
-    fetchAPI('/categories', { populate: 'deep' }),
-    fetchAPI('/pages', { populate: 'deep' }),
+    fetchAPI('/categories', { populate: '' }),
   ]);
 
   return {
     props: {
       info: infoRes.data,
       categories: categoriesRes.data,
-      pages: pagesRes,
     },
     revalidate: 1,
   };
