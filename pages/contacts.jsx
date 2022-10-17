@@ -1,5 +1,5 @@
 import { MainLayout } from '../layouts/MainLayout';
-import ContactsInfo from '../components/ContactsInfo/ContactsInfo';
+
 import { Box, Container, Typography, useMediaQuery } from '@mui/material';
 import ServicesHero from '../components/ServicesHero/ServicesHero';
 import { fetchAPI } from '../lib/api';
@@ -26,7 +26,7 @@ export async function getStaticProps() {
   // Run API calls in parallel
   const [infoRes, categoriesRes] = await Promise.all([
     fetchAPI('/info'),
-    fetchAPI('/categories', { populate: '' }),
+    fetchAPI('/categories', { populate: 'deep' }),
   ]);
 
   return {
