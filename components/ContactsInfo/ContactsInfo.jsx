@@ -3,7 +3,6 @@ import React from 'react';
 import { Box } from '@mui/material';
 
 const ContactsInfo = ({ info, address, phone, email, align }) => {
-  console.log(info);
   return (
     <Box className={styles.contactsInfo}>
       <ul>

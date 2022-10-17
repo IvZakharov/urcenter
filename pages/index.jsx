@@ -1,23 +1,17 @@
 import { MainLayout } from '../layouts/MainLayout';
-
+import axios from 'axios';
 import { Box, Container, Typography, useMediaQuery } from '@mui/material';
 import MainHero from '../components/MainHero/MainHero';
 import Services from '../components/Services';
 import LetsTalk from '../components/LetsTalk/LetsTalk';
 import { fetchAPI } from '../lib/api';
 
-const Home = ({ info, categories, pages }) => {
+const Home = ({ info, categories }) => {
   const matches = useMediaQuery('(min-width: 768px)');
   const matchesLg = useMediaQuery('(min-width: 1200px)');
 
-  console.log(pages);
-
   return (
-    <MainLayout
-      categories={categories}
-      info={info}
-      metaTitle={'Главаная'}
-      metaDescription={'Юр юр юр '}>
+    <MainLayout categories={categories} info={info} metaTitle={'Главаная'} metaDescription={''}>
       <Container>
         {/* {!matches && (
           <Box sx={{ maxWidth: '70%' }} mt={3}>
@@ -51,19 +45,17 @@ const Home = ({ info, categories, pages }) => {
 
 export async function getStaticProps() {
   // Run API calls in parallel
-  const [infoRes, categoriesRes, pagesRes] = await Promise.all([
+  const [infoRes, categoriesRes] = await Promise.all([
     fetchAPI('/info'),
     fetchAPI('/categories', { populate: 'deep' }),
-    fetchAPI('/pages', { populate: 'deep' }),
   ]);
 
   return {
     props: {
       info: infoRes.data,
       categories: categoriesRes.data,
-      pages: pagesRes,
     },
-    revalidate: 1,
+    revalidate: 10,
   };
 }
 
