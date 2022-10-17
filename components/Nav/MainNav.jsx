@@ -48,7 +48,7 @@ const MainNav = ({ categories }) => {
         </li>
         <li>
           <Link href={'/contacts'}>
-            <a>Контакты</a>
+            <a>КОНТАКТЫ</a>
           </Link>
         </li>
       </ul>
