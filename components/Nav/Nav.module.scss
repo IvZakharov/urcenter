@@ -62,12 +62,24 @@
       &:last-child {
         margin-right: 0;
       }
-      span {
+
+      > a {
         cursor: pointer;
-        font-size: 14px;
+        font-size: 16px;
         line-height: 17px;
         letter-spacing: 0.7px;
-        text-transform: uppercase;
+
+        color: #000000;
+        position: relative;
+        z-index: 30;
+      }
+
+      span {
+        cursor: pointer;
+        font-size: 16px;
+        line-height: 17px;
+        letter-spacing: 0.7px;
+
         color: #000000;
         position: relative;
         z-index: 30;

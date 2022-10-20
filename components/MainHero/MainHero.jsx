@@ -53,7 +53,6 @@ const MainHero = () => {
                   </i>
                   <p>Работаем с 2014 года</p>
                 </li>
-
                 <li>
                   <i>
                     <svg

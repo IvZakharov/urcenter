@@ -27,7 +27,11 @@ const Footer = ({ info }) => {
             <Grid item xs={12} md={4} sx={{ paddingRight: 10 }}>
               <p className={styles.text}>ИП Ильина Ирина Алексеевна</p>
               <p className={styles.text}>ОГРНИП 315774600179189</p>
-              <p className={styles.text}>Политика конфиденциальности</p>
+              <p className={styles.text}>
+                <Link href={'/privacy-policy'}>
+                  <a>Политика конфиденциальности</a>
+                </Link>
+              </p>
             </Grid>
           </Grid>
         </Container>

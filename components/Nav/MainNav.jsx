@@ -15,7 +15,7 @@ const MainNav = ({ categories }) => {
           <Box
             sx={{ display: 'flex', alignItems: 'center' }}
             onClick={() => setSubmenuIsOpen(!submenuIsOpen)}>
-            <span>Услуги центра</span>
+            <span>УСЛУГИ ЦЕНТРА</span>
             <KeyboardArrowDownIcon />
           </Box>
 
