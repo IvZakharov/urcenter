@@ -15,7 +15,7 @@ const MainNav = ({ categories }) => {
           <Box
             sx={{ display: 'flex', alignItems: 'center' }}
             onClick={() => setSubmenuIsOpen(!submenuIsOpen)}>
-            <span>УСЛУГИ ЦЕНТРА</span>
+            <span className={styles.fs14}>УСЛУГИ ЦЕНТРА</span>
             <KeyboardArrowDownIcon />
           </Box>
 
@@ -48,7 +48,7 @@ const MainNav = ({ categories }) => {
         </li>
         <li>
           <Link href={'/contacts'}>
-            <a>КОНТАКТЫ</a>
+            <a className={styles.fs14}>КОНТАКТЫ</a>
           </Link>
         </li>
       </ul>
