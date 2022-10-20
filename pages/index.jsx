@@ -11,7 +11,11 @@ const Home = ({ info, categories }) => {
   const matchesLg = useMediaQuery('(min-width: 1200px)');
 
   return (
-    <MainLayout categories={categories} info={info} metaTitle={'Главаная'} metaDescription={''}>
+    <MainLayout
+      categories={categories}
+      info={info}
+      metaTitle={'Юридический центр города Москвы'}
+      metaDescription={'Юридический центр города Москвы'}>
       <Container>
         {/* {!matches && (
           <Box sx={{ maxWidth: '70%' }} mt={3}>

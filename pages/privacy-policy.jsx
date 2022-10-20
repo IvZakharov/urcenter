@@ -16,7 +16,7 @@ const Privacy = ({ info, categories }) => {
       categories={categories}
       info={info}
       metaTitle={'Политика конфиденциальности'}
-      metaDescription={'Юр юр юр '}>
+      metaDescription={'Юридический центр города Москвы'}>
       <Container>
         <Box mb={matches ? 20 : 12}>
           <Box mb={matches ? 12 : 8}>

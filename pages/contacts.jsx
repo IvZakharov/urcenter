@@ -13,7 +13,7 @@ const Contacts = ({ info, categories }) => {
       categories={categories}
       info={info}
       metaTitle={'Контакты'}
-      metaDescription={'Юр юр юр '}>
+      metaDescription={'Юридический центр города Москвы'}>
       <Container>
         <Box mb={matches ? 20 : 12}>
           <Box mb={matches ? 12 : 8}>
