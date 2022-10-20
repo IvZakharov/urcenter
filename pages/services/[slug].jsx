@@ -97,7 +97,12 @@ const Page = ({ page, categories, info }) => {
 };
 
 export async function getStaticPaths() {
-  const pagesRes = await fetchAPI('/pages', { fields: ['slug'] });
+  // const pagesRes = await fetchAPI('/pages', { fields: ['slug'] });
+  const response = await fetch(
+    'https://dolphin-app-fpmlu.ondigitalocean.app/api/pages?pagination[pageSize]=100',
+  );
+
+  const pagesRes = await response.json();
 
   return {
     paths: pagesRes.data.map((page) => ({
