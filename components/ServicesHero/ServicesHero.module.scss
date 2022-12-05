@@ -3,6 +3,10 @@
 .servicesHero {
   padding-top: 50px;
 
+  @media (min-width: 768px) {
+    padding-top: 100px;
+  }
+
   .title {
     font-weight: 400;
     font-size: 32px;

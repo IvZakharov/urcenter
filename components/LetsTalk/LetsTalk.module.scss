@@ -99,4 +99,15 @@
       }
     }
   }
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-direction: column;
+
+    @media (min-width: 1200px) {
+      flex-direction: row;
+    }
+  }
 }
