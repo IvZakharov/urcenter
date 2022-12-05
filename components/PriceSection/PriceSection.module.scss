@@ -1,21 +1,9 @@
-@import 'styles/variables';
+@import "styles/variables";
 
 .priceSection {
   padding: 70px 0;
   background-color: $primary;
   position: relative;
-
-  @media (min-width: 1400px) {
-    &:before {
-      position: absolute;
-      content: '';
-      left: 0;
-      top: 0;
-      width: 85px;
-      height: 100%;
-      background-color: white;
-    }
-  }
 
   .title {
     font-weight: 400;
@@ -83,7 +71,7 @@
 
     li {
       font-weight: 400;
-      font-size: 14px;
+      font-size: 16px;
       padding: 15px 0 15px 30px;
       line-height: 17px;
       position: relative;
@@ -98,7 +86,7 @@
 
       &:before,
       &:after {
-        content: '';
+        content: "";
         position: absolute;
         top: 50%;
         left: 0;

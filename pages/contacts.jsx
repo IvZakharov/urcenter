@@ -1,42 +1,57 @@
-import { MainLayout } from '../layouts/MainLayout';
-import Iframe from 'react-iframe';
-import { Box, Container, Grid, Typography, useMediaQuery } from '@mui/material';
-import ServicesHero from '../components/ServicesHero/ServicesHero';
-import { fetchAPI } from '../lib/api';
-import ContactsInfo from '../components/ContactsInfo/ContactsInfo';
+import { MainLayout } from "../layouts/MainLayout";
+import Iframe from "react-iframe";
+import { Box, Container, Grid, Typography, useMediaQuery } from "@mui/material";
+import ServicesHero from "../components/ServicesHero/ServicesHero";
+import { fetchAPI } from "../lib/api";
+import ContactsInfo from "../components/ContactsInfo/ContactsInfo";
 
 const Contacts = ({ info, categories }) => {
-  const matches = useMediaQuery('(min-width: 768px)');
+  const matches = useMediaQuery("(min-width: 768px)");
 
   return (
     <MainLayout
       categories={categories}
       info={info}
-      metaTitle={'Контакты'}
-      metaDescription={'Юридический центр города Москвы'}>
+      metaTitle={"Контакты"}
+      metaDescription={"Юридический центр города Москвы"}
+    >
       <Container>
         <Box mb={matches ? 20 : 12}>
           <Box mb={matches ? 12 : 8}>
-            <ServicesHero title={'Контакты'} />
+            <ServicesHero title={"Контакты"} />
           </Box>
 
           <Grid container spacing={matches ? 24 : 8}>
             <Grid item xs={12} md={4}>
-              <ContactsInfo address info={info} email phone />
+              <Box sx={{ maxWidth: matches ? "auto" : "250px" }}>
+                <ContactsInfo address info={info} email phone />
+              </Box>
             </Grid>
             <Grid item xs={12} md={8}>
-              <Box sx={{ position: 'relative', overflow: 'hidden' }}>
+              <Box sx={{ position: "relative", overflow: "hidden" }}>
                 <a href="https://yandex.ru/maps/213/moscow/?utm_medium=mapframe&utm_source=maps">
                   <Typography
-                    sx={{ color: '#eee', fontSize: '12px', position: 'absolute', top: '0px' }}>
-                    {' '}
+                    sx={{
+                      color: "#eee",
+                      fontSize: "12px",
+                      position: "absolute",
+                      top: "0px",
+                    }}
+                  >
+                    {" "}
                     Москва
                   </Typography>
                 </a>
                 <a href="https://yandex.ru/maps/213/moscow/house/skatertny_pereulok_5s2/Z04Ycw5nSUYAQFtvfXt0dH1rZQ==/?ll=37.597037%2C55.755181&utm_medium=mapframe&utm_source=maps&z=16.87">
                   <Typography
-                    sx={{ color: '#eee', fontSize: '12px', position: 'absolute', top: '14px' }}>
-                    {' '}
+                    sx={{
+                      color: "#eee",
+                      fontSize: "12px",
+                      position: "absolute",
+                      top: "14px",
+                    }}
+                  >
+                    {" "}
                     Скатертный переулок, 5с2 — Яндекс Карты
                   </Typography>
                 </a>
@@ -46,7 +61,8 @@ const Contacts = ({ info, categories }) => {
                   height="400"
                   frameborder="1"
                   position="relatuve"
-                  allowfullscreen="true"></Iframe>
+                  allowFullScreen="true"
+                ></Iframe>
               </Box>
             </Grid>
           </Grid>
@@ -59,8 +75,8 @@ const Contacts = ({ info, categories }) => {
 export async function getStaticProps() {
   // Run API calls in parallel
   const [infoRes, categoriesRes] = await Promise.all([
-    fetchAPI('/info'),
-    fetchAPI('/categories', { populate: 'deep' }),
+    fetchAPI("/info"),
+    fetchAPI("/categories", { populate: "deep" }),
   ]);
 
   return {

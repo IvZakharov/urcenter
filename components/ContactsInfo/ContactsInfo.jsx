@@ -1,6 +1,6 @@
-import styles from './ContactsInfo.module.scss';
-import React from 'react';
-import { Box } from '@mui/material';
+import styles from "./ContactsInfo.module.scss";
+import React from "react";
+import { Box } from "@mui/material";
 
 const ContactsInfo = ({ info, address, phone, email, align }) => {
   return (
@@ -9,15 +9,17 @@ const ContactsInfo = ({ info, address, phone, email, align }) => {
         {address && (
           <li
             style={{
-              justifyContent: align === 'right' ? 'flex-end' : 'flex-start',
-            }}>
+              justifyContent: align === "right" ? "flex-end" : "flex-start",
+            }}
+          >
             <i className={styles.icon}>
               <svg
                 width="16"
                 height="21"
                 viewBox="0 0 16 21"
                 fill="none"
-                xmlns="http://www.w3.org/2000/svg">
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   d="M8 11C9.65685 11 11 9.65685 11 8C11 6.34315 9.65685 5 8 5C6.34315 5 5 6.34315 5 8C5 9.65685 6.34315 11 8 11Z"
                   stroke="#F6296F"
@@ -37,9 +39,10 @@ const ContactsInfo = ({ info, address, phone, email, align }) => {
 
             <a
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               href={info && info.attributes?.addressLink}
-              className={styles.link}>
+              className={styles.link}
+            >
               {info && info.attributes?.address}
             </a>
           </li>
@@ -47,15 +50,17 @@ const ContactsInfo = ({ info, address, phone, email, align }) => {
         {phone && (
           <li
             style={{
-              justifyContent: align === 'right' ? 'flex-end' : 'flex-start',
-            }}>
+              justifyContent: align === "right" ? "flex-end" : "flex-start",
+            }}
+          >
             <i className={styles.icon}>
               <svg
                 width="18"
                 height="18"
                 viewBox="0 0 18 18"
                 fill="none"
-                xmlns="http://www.w3.org/2000/svg">
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <g clipPath="url(#clip0_106_411)">
                   <path
                     d="M0.75 17.25L2.2625 13.7667C1.10536 12.1241 0.587445 10.1156 0.805958 8.1183C1.02447 6.12095 1.96439 4.27199 3.44932 2.91843C4.93424 1.56486 6.8621 0.799728 8.8711 0.766624C10.8801 0.733519 12.8321 1.43472 14.3608 2.73862C15.8896 4.04253 16.8899 5.85951 17.1741 7.84858C17.4583 9.83765 17.0068 11.8621 15.9044 13.5419C14.802 15.2218 13.1245 16.4416 11.1866 16.9724C9.24873 17.5032 7.18374 17.3086 5.37917 16.425L0.75 17.25"
@@ -80,9 +85,12 @@ const ContactsInfo = ({ info, address, phone, email, align }) => {
               </svg>
             </i>
             <a
-              href={`tel:${info && info.attributes?.phoneLInk}`}
+              target={"_blank"}
+              rel="noopener noreferrer"
+              href={`${info && info.attributes?.phoneLink}`}
               className={styles.link}
-              style={{ whiteSpace: 'nowrap' }}>
+              style={{ whiteSpace: "nowrap" }}
+            >
               {info && info.attributes?.phone}
             </a>
           </li>
@@ -90,15 +98,17 @@ const ContactsInfo = ({ info, address, phone, email, align }) => {
         {email && (
           <li
             style={{
-              justifyContent: align === 'right' ? 'flex-end' : 'flex-start',
-            }}>
+              justifyContent: align === "right" ? "flex-end" : "flex-start",
+            }}
+          >
             <i className={styles.icon}>
               <svg
                 width="18"
                 height="14"
                 viewBox="0 0 18 14"
                 fill="none"
-                xmlns="http://www.w3.org/2000/svg">
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <g clipPath="url(#clip0_479_866)">
                   <path
                     d="M15.4167 0.583496H2.58333C1.57081 0.583496 0.75 1.40431 0.75 2.41683V11.5835C0.75 12.596 1.57081 13.4168 2.58333 13.4168H15.4167C16.4292 13.4168 17.25 12.596 17.25 11.5835V2.41683C17.25 1.40431 16.4292 0.583496 15.4167 0.583496Z"
@@ -125,7 +135,8 @@ const ContactsInfo = ({ info, address, phone, email, align }) => {
             <a
               href={`mailto:${info && info.attributes?.email}`}
               className={styles.link}
-              style={{ whiteSpace: 'nowrap' }}>
+              style={{ whiteSpace: "nowrap" }}
+            >
               {info && info.attributes?.email}
             </a>
           </li>
