@@ -1,6 +1,10 @@
-@import 'styles/variables';
+@import "styles/variables";
 
 .servicesHero {
+  @media (min-width: 1200px) {
+    height: calc(100vh - 400px);
+  }
+
   .title {
     font-size: 26px;
     line-height: 22px;

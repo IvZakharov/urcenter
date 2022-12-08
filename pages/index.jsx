@@ -24,33 +24,9 @@ const Home = ({ info, categories }) => {
           </Box>
         )} */}
       </Container>
-      <Box paddingY={matches ? 6 : 3}></Box>
+      <Box paddingY={matchesLg ? 0 : 3}></Box>
       <MainHero />
-      <Box
-        component={"section"}
-        sx={{ paddingY: 10, paddingX: matchesLg ? 35 : 2 }}
-      >
-        <Container>
-          <Typography
-            variant={"body1"}
-            sx={{
-              fontSize: matches ? 32 : 20,
-              lineHeight: 1.5,
-              textAlign: matches ? "center" : "left",
-            }}
-          >
-            <Typography
-              variant={"inherit"}
-              component="span"
-              color={"primary.main"}
-            >
-              Юридический центр г. Москвы
-            </Typography>{" "}
-            в Скатертном переулке, дом 5 работает с 2014 г. и надёжно помогает
-            своим клиентам в юридических вопросах.
-          </Typography>
-        </Container>
-      </Box>
+
       <Services categories={categories} />
     </MainLayout>
   );

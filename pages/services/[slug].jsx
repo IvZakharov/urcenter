@@ -24,7 +24,7 @@ const Page = ({ page, categories, info }) => {
       metaTitle={page.attributes?.title}
       metaDescription={"Юридический центр города Москвы"}
     >
-      <Box mb={matches ? 20 : 6}>
+      <Box mb={matchesLg ? 0 : matches ? 20 : 6}>
         <ServicesHero title={page.attributes?.title} />
       </Box>
 

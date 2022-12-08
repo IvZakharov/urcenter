@@ -7,6 +7,14 @@
     padding-top: 100px;
   }
 
+  @media (min-width: 1200px) {
+    padding: 0;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .title {
     font-weight: 400;
     font-size: 32px;
@@ -25,6 +33,7 @@
     @media (min-width: 1200px) {
       font-size: 72px;
       line-height: 75px;
+      vertical-align: center;
     }
   }
 }
