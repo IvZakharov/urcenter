@@ -24,7 +24,7 @@ const Contacts = ({ info, categories }) => {
           <Grid container spacing={matches ? 24 : 8}>
             <Grid item xs={12} md={4}>
               <Box sx={{ maxWidth: matches ? "auto" : "250px" }}>
-                <ContactsInfo address info={info} email phone />
+                <ContactsInfo address info={info} email phone whatsApp />
               </Box>
             </Grid>
             <Grid item xs={12} md={8}>

@@ -1,12 +1,12 @@
-import Head from 'next/head';
-import React from 'react';
-import { ThemeProvider } from '@mui/material';
+import Head from "next/head";
+import React from "react";
+import { ThemeProvider } from "@mui/material";
 
-import { theme } from '../theme';
-import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
-import MobileMenu from '../components/MobileMenu/MobileMenu';
-import LetsTalk from '../components/LetsTalk/LetsTalk';
+import { theme } from "../theme";
+import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
+import MobileMenu from "../components/MobileMenu/MobileMenu";
+import LetsTalk from "../components/LetsTalk/LetsTalk";
 
 export const MainLayout = ({
   children,
@@ -70,10 +70,14 @@ export const MainLayout = ({
         />
         <link rel="stylesheet" href="/fonts/style.css" />
       </Head>
-      <Header categories={categories} info={info} onClickOpen={() => setMobileMenuOpen(true)} />
+      <Header
+        categories={categories}
+        info={info}
+        onClickOpen={() => setMobileMenuOpen(true)}
+      />
 
       <div className="main">{children}</div>
-      <LetsTalk />
+      <LetsTalk whatsappLink={info.attributes.whatsAppLink} />
       <Footer info={info} />
 
       <MobileMenu

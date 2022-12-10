@@ -38,18 +38,18 @@
 
   .text {
     font-weight: 400;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 26px;
     color: #000000;
     margin-bottom: 30px;
 
     @media (min-width: 768px) {
-      font-size: 24px;
+      font-size: 20px;
       line-height: 30px;
     }
 
     @media (min-width: 1200px) {
-      padding-right: 70px;
+      padding-right: 120px;
     }
   }
 

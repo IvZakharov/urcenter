@@ -2,7 +2,15 @@ import styles from "./ContactsInfo.module.scss";
 import React from "react";
 import { Box } from "@mui/material";
 
-const ContactsInfo = ({ info, address, phone, email, align }) => {
+const ContactsInfo = ({
+  info,
+  address,
+  phone,
+  email,
+  whatsApp,
+  whatsAppLink,
+  align,
+}) => {
   return (
     <Box className={styles.contactsInfo}>
       <ul>
@@ -47,7 +55,7 @@ const ContactsInfo = ({ info, address, phone, email, align }) => {
             </a>
           </li>
         )}
-        {phone && (
+        {whatsApp && (
           <li
             style={{
               justifyContent: align === "right" ? "flex-end" : "flex-start",
@@ -87,7 +95,42 @@ const ContactsInfo = ({ info, address, phone, email, align }) => {
             <a
               target={"_blank"}
               rel="noopener noreferrer"
-              href={`${info && info.attributes?.phoneLink}`}
+              href={`${info && info.attributes?.whatsAppLink}`}
+              className={styles.link}
+              style={{ whiteSpace: "nowrap" }}
+            >
+              {info && info.attributes?.whatsApp}
+            </a>
+          </li>
+        )}
+
+        {phone && (
+          <li
+            style={{
+              justifyContent: align === "right" ? "flex-end" : "flex-start",
+            }}
+          >
+            <i className={styles.icon}>
+              <svg
+                width="21"
+                height="21"
+                viewBox="0 0 21 21"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M17.3413 16.7727C17.3413 16.7727 16.3275 17.7685 16.0791 18.0604C15.6743 18.4923 15.1975 18.6963 14.5723 18.6963C14.5122 18.6963 14.4481 18.6963 14.388 18.6923C13.1979 18.6163 12.0919 18.1524 11.2624 17.7565C8.99426 16.6607 7.00267 15.1051 5.34768 13.1336C3.98121 11.49 3.06756 9.97034 2.46247 8.33873C2.0898 7.34297 1.95355 6.56715 2.01366 5.83532C2.05373 5.36744 2.23406 4.97953 2.56666 4.64761L3.93313 3.28393C4.12948 3.09998 4.33786 3 4.54223 3C4.79468 3 4.99905 3.15196 5.12728 3.27993C5.13129 3.28393 5.1353 3.28793 5.1393 3.29193C5.38374 3.51988 5.61616 3.75582 5.86061 4.00776C5.98483 4.13573 6.11306 4.2637 6.24129 4.39567L7.33527 5.48741C7.76004 5.91131 7.76004 6.30321 7.33527 6.72711C7.21906 6.84309 7.10686 6.95906 6.99065 7.07103C6.65404 7.41495 6.91846 7.15106 6.56983 7.46299C6.56182 7.47099 6.5538 7.47499 6.5498 7.48298C6.20517 7.8269 6.26929 8.16282 6.34142 8.39077C6.34543 8.40276 6.34944 8.41476 6.35344 8.42676C6.63796 9.1146 7.03868 9.76244 7.64778 10.5343L7.65179 10.5383C8.75778 11.8979 9.92389 12.9577 11.2102 13.7695C11.3745 13.8735 11.5428 13.9574 11.7031 14.0374C11.8474 14.1094 11.9836 14.1774 12.0998 14.2494C12.1158 14.2574 12.1319 14.2694 12.1479 14.2774C12.2842 14.3453 12.4124 14.3773 12.5446 14.3773C12.8772 14.3773 13.0856 14.1694 13.1537 14.1014L13.9392 13.3175C14.0754 13.1816 14.2918 13.0176 14.5443 13.0176C14.7927 13.0176 14.9971 13.1736 15.1213 13.3095C15.1253 13.3135 15.1253 13.3135 15.1293 13.3175L17.3373 15.521C17.7501 15.9289 17.3413 16.7727 17.3413 16.7727Z"
+                  stroke="#AF5CD6"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </i>
+            <a
+              target={"_blank"}
+              rel="noopener noreferrer"
+              href={`tel:${info && info.attributes?.phoneLink}`}
               className={styles.link}
               style={{ whiteSpace: "nowrap" }}
             >

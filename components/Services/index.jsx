@@ -1,33 +1,52 @@
-import styles from './Services.module.scss';
-import React from 'react';
-import Basic from './Basic';
-import Changes from './Changes';
-import Registration from './Registration';
-import { useMediaQuery, Container, Grid, Button, Box, IconButton } from '@mui/material';
-import Image from 'next/image';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import { Pagination, Navigation } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
-import Liquidation from './Liquidation';
+import styles from "./Services.module.scss";
+import React from "react";
+import Basic from "./Basic";
+import Changes from "./Changes";
+import Registration from "./Registration";
+import {
+  useMediaQuery,
+  Container,
+  Grid,
+  Button,
+  Box,
+  IconButton,
+} from "@mui/material";
+import Image from "next/image";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Pagination, Navigation } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
+import Liquidation from "./Liquidation";
 
 const ServicesMain = ({ categories }) => {
-  const matches = useMediaQuery('(min-width: 768px)');
+  const matches = useMediaQuery("(min-width: 768px)");
   const arrowPrev = React.useRef(null);
   const arrowNext = React.useRef(null);
   const [isLoading, setIsLoading] = React.useState(true);
   const [categoriesList, setCategoriesList] = React.useState();
 
+  console.log(categoriesList);
+
   React.useEffect(() => {
-    const basic = categories.find((obj) => obj.attributes?.name === 'Основные услуги');
-    const changes = categories.find((obj) => obj.attributes?.name === 'Внесение изменений');
-    const liquidation = categories.find((obj) => obj.attributes?.name === 'Ликвидация');
+    const basic = categories.find(
+      (obj) => obj.attributes?.name === "Основные услуги"
+    );
+    const changes = categories.find(
+      (obj) => obj.attributes?.name === "Внесение изменений"
+    );
+    const liquidation = categories.find(
+      (obj) => obj.attributes?.name === "Ликвидация"
+    );
+    const registration = categories.find(
+      (obj) => obj.attributes?.name === "Регистрация"
+    );
 
     setCategoriesList({
       basic: basic.attributes.pages.data,
       changes: changes.attributes.pages.data,
       liquidation: liquidation.attributes.pages.data,
+      registration: registration.attributes.pages.data,
     });
 
     setIsLoading(false);
@@ -48,26 +67,33 @@ const ServicesMain = ({ categories }) => {
           loop={true}
           modules={[Navigation]}
           autoHeight={true}
-          className={styles.servicesSwiper}>
+          className={styles.servicesSwiper}
+        >
           <SwiperSlide>
             <Basic servicesList={!isLoading ? categoriesList.basic : null} />
           </SwiperSlide>
           <SwiperSlide>
-            <Changes servicesList={!isLoading ? categoriesList.changes : null} />
+            <Changes
+              servicesList={!isLoading ? categoriesList.changes : null}
+            />
           </SwiperSlide>
           <SwiperSlide>
-            <Registration />
+            <Registration
+              servicesList={!isLoading ? categoriesList.registration : null}
+            />
           </SwiperSlide>
           <SwiperSlide>
-            <Liquidation servicesList={!isLoading ? categoriesList.liquidation : null} />
+            <Liquidation
+              servicesList={!isLoading ? categoriesList.liquidation : null}
+            />
           </SwiperSlide>
           <IconButton className={styles.arrowPrev} ref={arrowPrev}>
-            <ArrowLeftIcon sx={{ color: 'primary.main' }} fontSize={'large'} />
+            <ArrowLeftIcon sx={{ color: "primary.main" }} fontSize={"large"} />
           </IconButton>
           <IconButton className={styles.arrowNext} ref={arrowNext}>
             <ArrowLeftIcon
-              sx={{ color: 'primary.main', transform: 'rotate(180deg)' }}
-              fontSize={'large'}
+              sx={{ color: "primary.main", transform: "rotate(180deg)" }}
+              fontSize={"large"}
             />
           </IconButton>
         </Swiper>
@@ -75,8 +101,12 @@ const ServicesMain = ({ categories }) => {
         <>
           <Basic servicesList={!isLoading ? categoriesList.basic : null} />
           <Changes servicesList={!isLoading ? categoriesList.changes : null} />
-          <Registration />
-          <Liquidation servicesList={!isLoading ? categoriesList.liquidation : null} />
+          <Registration
+            servicesList={!isLoading ? categoriesList.registration : null}
+          />
+          <Liquidation
+            servicesList={!isLoading ? categoriesList.liquidation : null}
+          />
         </>
       )}
     </section>

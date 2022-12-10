@@ -1,17 +1,17 @@
 import styles from "./LetsTalk.module.scss";
 import React from "react";
+import { useForm } from "react-hook-form";
 import imageSvg from "./img/img.svg";
-import {
-  useMediaQuery,
-  Container,
-  Grid,
-  Button,
-  Box,
-  TextField,
-} from "@mui/material";
+import { useMediaQuery, Container, Grid, Button, Box } from "@mui/material";
 import Image from "next/image";
-const LetsTalk = () => {
+const LetsTalk = ({ whatsappLink }) => {
   const matches = useMediaQuery("(min-width: 768px)");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => console.log(data);
 
   return (
     <section className={styles.letsTalk} id="form">
@@ -28,55 +28,80 @@ const LetsTalk = () => {
               Воспользуйтесь услугой нашего юридического центра сейчас, и вы
               сэкономите свое время, деньги и нервы.
             </p>
-            <Box
+            <form
               component="form"
-              noValidate
               autoComplete="off"
               className={styles.form}
+              onSubmit={handleSubmit(onSubmit)}
             >
-              <Box className={styles.field}>
+              <Box
+                className={`${styles.field} ${
+                  errors.userName && styles.fieldError
+                }`}
+              >
                 <label htmlFor="userName">Ваше имя:</label>
-                <input type="text" id="userName" name="userName" />
+                <input
+                  {...register("userName", { required: true })}
+                  type="text"
+                  id="userName"
+                  name="userName"
+                />
+                {errors.userName && <span>Укажите ваше имя</span>}
               </Box>
-              <Box className={styles.field}>
+              <Box
+                className={`${styles.field} ${
+                  errors.userTel && styles.fieldError
+                }`}
+              >
                 <label htmlFor="userTel">Телефон:</label>
-                <input type="tel" id="userTel" name="userTel" />
+                <input
+                  type="tel"
+                  {...register("userTel", { required: true })}
+                  id="userTel"
+                  name="userTel"
+                />
+                {errors.userTel && <span>Укажите ваш номер телефона</span>}
               </Box>
-            </Box>
-            <Box className={styles.buttons}>
-              <Button
-                sx={{
-                  width: matches ? "auto" : "100%",
-                  backgroundColor: "#fff",
-                  color: "primary.main",
-                  fontSize: 16,
-                  ":hover": {
-                    backgroundColor: "#e1e1e1",
-                  },
-                }}
-              >
-                Отправить заявку
-              </Button>
-
-              <Button
-                variant={"outlined"}
-                sx={{
-                  width: matches ? "auto" : "100%",
-                  backgroundColor: "transparent",
-                  color: "white",
-                  border: "1px solid white",
-                  whiteSpace: "nowrap",
-                  fontSize: 16,
-                  ":hover": {
-                    border: "1px solid white",
-                    backgroundColor: "white",
+              <Box className={styles.buttons}>
+                <Button
+                  type={"submit"}
+                  sx={{
+                    width: matches ? "auto" : "100%",
+                    backgroundColor: "#fff",
                     color: "primary.main",
-                  },
-                }}
-              >
-                Написать в Whatsapp
-              </Button>
-            </Box>
+                    whiteSpace: "nowrap",
+                    fontSize: 16,
+                    ":hover": {
+                      backgroundColor: "#e1e1e1",
+                    },
+                  }}
+                >
+                  Отправить заявку
+                </Button>
+
+                <p className={styles.or}>или</p>
+                <Button
+                  href={whatsappLink}
+                  target={"_blank"}
+                  variant={"outlined"}
+                  sx={{
+                    width: matches ? "auto" : "100%",
+                    backgroundColor: "transparent",
+                    color: "white",
+                    border: "1px solid white",
+                    whiteSpace: "nowrap",
+                    fontSize: 16,
+                    ":hover": {
+                      border: "1px solid white",
+                      backgroundColor: "white",
+                      color: "primary.main",
+                    },
+                  }}
+                >
+                  Написать в WhatsApp
+                </Button>
+              </Box>
+            </form>
           </Grid>
         </Grid>
       </Container>
