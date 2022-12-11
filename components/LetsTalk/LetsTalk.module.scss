@@ -119,9 +119,41 @@
       flex-direction: row;
     }
   }
+}
 
-  .or {
-    color: white;
+.or {
+  color: white;
+  font-size: 18px;
+}
+
+.dialogContent {
+  padding: 0 30px 30px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    padding: 0 100px 30px;
+  }
+
+  .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .title {
+    font-weight: 500;
+    font-size: 46px;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+
+  .description {
     font-size: 18px;
+    text-align: center;
+    margin-bottom: 30px;
   }
 }

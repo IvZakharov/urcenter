@@ -1,27 +1,48 @@
 import styles from "./LetsTalk.module.scss";
-import axios from "axios";
+import emailjs from "@emailjs/browser";
 import React from "react";
 import { useForm } from "react-hook-form";
 import imageSvg from "./img/img.svg";
-import { useMediaQuery, Container, Grid, Button, Box } from "@mui/material";
+import MailRoundedIcon from "@mui/icons-material/MailRounded";
+import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+import {
+  useMediaQuery,
+  Container,
+  Grid,
+  Button,
+  Box,
+  CircularProgress,
+  Dialog,
+  IconButton,
+} from "@mui/material";
 import Image from "next/image";
 const LetsTalk = ({ whatsappLink }) => {
-  const matches = useMediaQuery("(min-width: 768px)");
+  const matches = useMediaQuery("(min-width: 1024px)");
+  const [loading, setLoading] = React.useState(false);
+  const [dialogIsOpen, setDialogIsOpen] = React.useState(false);
+
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) =>
-    axios
-      .post("https://www.urcentr.su/api/send-request", data)
-      .then(() => {
-        reset();
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  const sendEmail = (data) => {
+    setLoading(true);
+    emailjs
+      .send("service_dwhsxch", "template_urcentr", data, "fQSAaQuQsicXPjQ1Y")
+      .then(
+        (result) => {
+          reset();
+          setLoading(false);
+          setDialogIsOpen(true);
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
 
   return (
     <section className={styles.letsTalk} id="form">
@@ -42,7 +63,7 @@ const LetsTalk = ({ whatsappLink }) => {
               component="form"
               autoComplete="off"
               className={styles.form}
-              onSubmit={handleSubmit(onSubmit)}
+              onSubmit={handleSubmit(sendEmail)}
             >
               <Box
                 className={`${styles.field} ${
@@ -77,6 +98,7 @@ const LetsTalk = ({ whatsappLink }) => {
                   type={"submit"}
                   sx={{
                     width: matches ? "auto" : "100%",
+                    flex: 1,
                     backgroundColor: "#fff",
                     color: "primary.main",
                     whiteSpace: "nowrap",
@@ -86,7 +108,11 @@ const LetsTalk = ({ whatsappLink }) => {
                     },
                   }}
                 >
-                  Отправить заявку
+                  {loading ? (
+                    <CircularProgress size={30} />
+                  ) : (
+                    "Отправить заявку"
+                  )}
                 </Button>
 
                 <p className={styles.or}>или</p>
@@ -115,6 +141,26 @@ const LetsTalk = ({ whatsappLink }) => {
           </Grid>
         </Grid>
       </Container>
+
+      <Dialog open={dialogIsOpen} onClick={() => setDialogIsOpen(false)}>
+        <Box className={styles.dialogContent}>
+          <MailRoundedIcon
+            sx={{ fontSize: matches ? 180 : 120, color: "primary.main" }}
+          />
+          <h3 className={styles.title}>Спасибо!</h3>
+          <p className={styles.description}>
+            Ваша заявка отправлена. <br /> Наш менеджер свяжется с вами в
+            ближайшее время.
+          </p>
+
+          <Button
+            onClick={() => setDialogIsOpen(false)}
+            sx={{ padding: "12px 80px", fontSize: matches ? 18 : 16 }}
+          >
+            Отлично
+          </Button>
+        </Box>
+      </Dialog>
     </section>
   );
 };
