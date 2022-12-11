@@ -1,4 +1,5 @@
 import styles from "./LetsTalk.module.scss";
+import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
 import imageSvg from "./img/img.svg";
@@ -9,9 +10,18 @@ const LetsTalk = ({ whatsappLink }) => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) =>
+    axios
+      .post("https://www.urcentr.su/api/send-request", data)
+      .then(() => {
+        reset();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
   return (
     <section className={styles.letsTalk} id="form">
