@@ -52,11 +52,6 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
-
-        <script
-          type="text/javascript"
-          src="//api.venyoo.ru/wnew.js?wc=venyoo/default/science&widget_id=6299632177119232"
-        ></script>
       </body>
     </Html>
   );
