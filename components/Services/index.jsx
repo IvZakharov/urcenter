@@ -26,8 +26,6 @@ const ServicesMain = ({ categories }) => {
   const [isLoading, setIsLoading] = React.useState(true);
   const [categoriesList, setCategoriesList] = React.useState();
 
-  console.log(categoriesList);
-
   React.useEffect(() => {
     const basic = categories.find(
       (obj) => obj.attributes?.name === "Основные услуги"
