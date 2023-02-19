@@ -1,11 +1,11 @@
-import styles from './PriceSection.module.scss';
-import React from 'react';
-import { useMediaQuery, Container, Grid, Box, Button } from '@mui/material';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
+import styles from "./PriceSection.module.scss";
+import React from "react";
+import { useMediaQuery, Container, Grid, Box, Button } from "@mui/material";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 const PriceSection = ({ title, price, description, subtitle, list }) => {
-  const matches = useMediaQuery('(min-width: 768px)');
+  const matches = useMediaQuery("(min-width: 768px)");
   const router = useRouter();
 
   return (
@@ -29,15 +29,15 @@ const PriceSection = ({ title, price, description, subtitle, list }) => {
                 <a>
                   <Button
                     sx={{
-                      width: matches ? 'auto' : '100%',
-                      backgroundColor: '#fff',
-
-                      color: 'primary.main',
+                      width: matches ? "auto" : "100%",
+                      backgroundColor: "primary.main",
+                      color: "#fff",
                       fontSize: 16,
-                      ':hover': {
-                        backgroundColor: '#e1e1e1',
-                      },
-                    }}>
+                      // ":hover": {
+                      //   backgroundColor: "#e1e1e1",
+                      // },
+                    }}
+                  >
                     Заказать услугу
                   </Button>
                 </a>
@@ -54,14 +54,15 @@ const PriceSection = ({ title, price, description, subtitle, list }) => {
                 <a>
                   <Button
                     sx={{
-                      width: '100%',
-                      backgroundColor: '#fff',
-                      color: 'primary.main',
+                      width: "100%",
+                      backgroundColor: "primary.main",
+                      color: "white",
                       fontSize: 16,
-                      ':hover': {
-                        backgroundColor: '#e1e1e1',
-                      },
-                    }}>
+                      // ":hover": {
+                      //   backgroundColor: "#e1e1e1",
+                      // },
+                    }}
+                  >
                     Заказать услугу
                   </Button>
                 </a>

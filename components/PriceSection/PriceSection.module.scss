@@ -1,17 +1,24 @@
 @import "styles/variables";
 
 .priceSection {
-  padding: 70px 0;
-  background-color: $primary;
   position: relative;
+
+  //old
+  //background-color: $primary;
+  //padding: 70px 0;
+
+  @media (min-width: 1200px) {
+    min-height: calc(100vh - 400px);
+  }
 
   .title {
     font-weight: 400;
     font-size: 45px;
     line-height: 56px;
     letter-spacing: 1.5px;
-    color: #ffffff;
     margin-bottom: 30px;
+
+    color: black;
   }
 
   .subtitle {
@@ -21,7 +28,13 @@
     text-transform: uppercase;
     font-weight: 500;
     letter-spacing: 0.583333px;
-    color: #03baff;
+
+    //old
+    //color: #03baff;
+
+    //new
+
+    color: $primary;
 
     margin-bottom: 30px;
 
@@ -36,8 +49,13 @@
     line-height: 80px;
     /* identical to box height */
     letter-spacing: 0.02em;
-    color: $secondary;
     white-space: nowrap;
+
+    //old
+    //color: $secondary;
+
+    //new
+    color: $primary;
 
     @media (min-width: 768px) {
       font-size: 80px;
@@ -45,11 +63,13 @@
     }
 
     span {
-      color: #fff;
+      //old
+      //color: #fff;
     }
 
     small {
-      color: #fff;
+      //old
+      //color: #fff;
       font-size: 44px;
     }
   }
@@ -59,7 +79,8 @@
     font-size: 18px;
     line-height: 22px;
     letter-spacing: 0.64px;
-    color: #ffffff;
+    //old
+    //color: #ffffff;
   }
 
   .list {
@@ -76,8 +97,13 @@
       line-height: 17px;
       position: relative;
       letter-spacing: 0.523636px;
-      color: #ffffff;
-      border-bottom: 2px dashed rgba(#dfdfdf, 0.3);
+
+      // old
+      //color: white;
+      //border-bottom: 2px dashed rgba(#dfdfdf, 0.3);
+
+      //new
+      border-bottom: 1px dashed rgba($primary, 1);
 
       @media (min-width: 768px) {
         padding: 25px 0 25px 50px;
@@ -92,7 +118,7 @@
         left: 0;
         width: 12px;
         height: 2px;
-        background-color: #fff;
+        background-color: $primary;
         border-radius: 2px;
       }
 

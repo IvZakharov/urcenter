@@ -31,6 +31,17 @@ const Page = ({ page, categories, info }) => {
       {page.attributes?.blocks &&
         page.attributes?.blocks.map((obj, idx) => {
           switch (obj.__component) {
+            case "blocks.price":
+              return (
+                <PriceSection
+                  key={idx}
+                  title={"Стоимость услуги"}
+                  price={obj.price}
+                  description={obj.additional}
+                  subtitle={obj.listTitle}
+                  list={obj.list}
+                />
+              );
             case "blocks.about":
               return (
                 <Box key={idx} mb={matches ? 10 : 8}>
@@ -59,17 +70,7 @@ const Page = ({ page, categories, info }) => {
                   leftList={obj.leftList}
                 />
               );
-            case "blocks.price":
-              return (
-                <PriceSection
-                  key={idx}
-                  title={"Стоимость услуги"}
-                  price={obj.price}
-                  description={obj.additional}
-                  subtitle={obj.listTitle}
-                  list={obj.list}
-                />
-              );
+
             case "blocks.price-table":
               return matchesLg ? (
                 <RegistrationDesktop
