@@ -1,14 +1,13 @@
 @import "styles/variables";
 
 .servicesHero {
+  background-color: $primary;
+  padding: 70px 0;
   @media (min-width: 1200px) {
     //old styles
     //height: calc(100vh - 400px);
 
     //new styles
-
-    background-color: $primary;
-    padding: 70px 0;
   }
 
   .title {
