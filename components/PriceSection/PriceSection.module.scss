@@ -2,13 +2,13 @@
 
 .priceSection {
   position: relative;
-
+  margin-bottom: 40px;
   //old
   //background-color: $primary;
   //padding: 70px 0;
 
   @media (min-width: 1200px) {
-    min-height: calc(100vh - 400px);
+    min-height: calc(100vh - 300px);
   }
 
   .title {
@@ -24,6 +24,11 @@
 
     font-size: 32px;
     line-height: 38px;
+
+    @media (min-width: 1200px) {
+      font-size: 45px;
+      line-height: 56px;
+    }
   }
 
   .subtitle {
@@ -102,6 +107,10 @@
       line-height: 17px;
       position: relative;
       letter-spacing: 0.523636px;
+
+      &:last-child {
+        border: none;
+      }
 
       // old
       //color: white;
