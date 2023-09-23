@@ -95,7 +95,7 @@ const ContactsInfo = ({
             <a
               target={"_blank"}
               rel="noopener noreferrer"
-              href={`${info && info.attributes?.whatsAppLink}`}
+              href={''}
               className={styles.link}
               style={{ whiteSpace: "nowrap" }}
             >
@@ -130,7 +130,7 @@ const ContactsInfo = ({
             <a
               target={"_blank"}
               rel="noopener noreferrer"
-              href={`tel:${info && info.attributes?.phoneLink}`}
+              href={``}
               className={styles.link}
               style={{ whiteSpace: "nowrap" }}
             >
