@@ -32,6 +32,8 @@ const LetsTalk = ({ whatsappLink }) => {
     data.requestUrl = window.location.href;
     data.subject = "Заявка с сайта";
 
+    console.log(data);
+
     axios
       .post(
         `https://api.calltouch.ru/calls-service/RestAPI/requests/${61988}/register/`,
