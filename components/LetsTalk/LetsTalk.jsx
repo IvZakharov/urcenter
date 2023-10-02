@@ -1,10 +1,9 @@
 import styles from "./LetsTalk.module.scss";
-import emailjs from "@emailjs/browser";
-import React from "react";
+import React, { useEffect } from "react";
+import axios from "axios";
 import { useForm } from "react-hook-form";
 import imageSvg from "./img/img.svg";
 import MailRoundedIcon from "@mui/icons-material/MailRounded";
-import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import {
   useMediaQuery,
   Container,
@@ -13,7 +12,6 @@ import {
   Box,
   CircularProgress,
   Dialog,
-  IconButton,
 } from "@mui/material";
 import Image from "next/image";
 const LetsTalk = ({ whatsappLink }) => {
@@ -27,21 +25,33 @@ const LetsTalk = ({ whatsappLink }) => {
     reset,
     formState: { errors },
   } = useForm();
+
   const sendEmail = (data) => {
     setLoading(true);
-    emailjs
-      .send("service_dwhsxch", "template_urcentr", data, "fQSAaQuQsicXPjQ1Y")
-      .then(
-        (result) => {
-          reset();
-          setLoading(false);
-          setDialogIsOpen(true);
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
+    data.sessionId = window.ct("calltracking_params", "3anfrf6i")?.sessionId;
+    data.requestUrl = window.location.href;
+    data.subject = "Заявка с сайта";
+
+    axios
+      .post(
+        `https://api.calltouch.ru/calls-service/RestAPI/requests/${61988}/register/`,
+        data,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
-      );
+      )
+      .then((res) => {
+        console.log(res);
+        reset();
+        setLoading(false);
+        setDialogIsOpen(true);
+      })
+      .catch((error) => {
+        console.error(error);
+        setLoading(false);
+      });
   };
 
   return (
@@ -60,38 +70,35 @@ const LetsTalk = ({ whatsappLink }) => {
               сэкономите свое время, деньги и нервы.
             </p>
             <form
-              component="form"
               autoComplete="off"
               className={styles.form}
               onSubmit={handleSubmit(sendEmail)}
             >
               <Box
-                className={`${styles.field} ${
-                  errors.userName && styles.fieldError
-                }`}
+                className={`${styles.field} ${errors.fio && styles.fieldError}`}
               >
-                <label htmlFor="userName">Ваше имя:</label>
+                <label htmlFor="fio">Ваше имя:</label>
                 <input
-                  {...register("userName", { required: true })}
+                  {...register("fio", { required: true })}
                   type="text"
-                  id="userName"
-                  name="userName"
+                  id="fio"
+                  name="fio"
                 />
-                {errors.userName && <span>Укажите ваше имя</span>}
+                {errors.fio && <span>Укажите ваше имя</span>}
               </Box>
               <Box
                 className={`${styles.field} ${
-                  errors.userTel && styles.fieldError
+                  errors.phoneNumber && styles.fieldError
                 }`}
               >
-                <label htmlFor="userTel">Телефон:</label>
+                <label htmlFor="phoneNumber">Телефон:</label>
                 <input
                   type="tel"
-                  {...register("userTel", { required: true })}
-                  id="userTel"
-                  name="userTel"
+                  {...register("phoneNumber", { required: true })}
+                  id="phoneNumber"
+                  name="phoneNumber"
                 />
-                {errors.userTel && <span>Укажите ваш номер телефона</span>}
+                {errors.phoneNumber && <span>Укажите ваш номер телефона</span>}
               </Box>
               <Box className={styles.buttons}>
                 <Button

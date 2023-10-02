@@ -17,6 +17,7 @@
     "@mui/material": "^5.10.17",
     "@reduxjs/toolkit": "^1.8.5",
     "axios": "^0.27.2",
+    "jquery": "^3.7.1",
     "next": "12.3.0",
     "next-redux-wrapper": "^8.0.0",
     "nextjs-progressbar": "^0.0.14",
