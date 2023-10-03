@@ -1,5 +1,6 @@
+import qs from "qs";
 import styles from "./LetsTalk.module.scss";
-import React, { useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import imageSvg from "./img/img.svg";
@@ -16,8 +17,8 @@ import {
 import Image from "next/image";
 const LetsTalk = ({ whatsappLink }) => {
   const matches = useMediaQuery("(min-width: 1024px)");
-  const [loading, setLoading] = React.useState(false);
-  const [dialogIsOpen, setDialogIsOpen] = React.useState(false);
+  const [loading, setLoading] = useState(false);
+  const [dialogIsOpen, setDialogIsOpen] = useState(false);
 
   const {
     register,
@@ -26,34 +27,32 @@ const LetsTalk = ({ whatsappLink }) => {
     formState: { errors },
   } = useForm();
 
-  const sendEmail = (data) => {
+  const sendEmail = async (data) => {
     setLoading(true);
     data.sessionId = window.ct("calltracking_params", "3anfrf6i")?.sessionId;
     data.requestUrl = window.location.href;
     data.subject = "Заявка с сайта";
 
-    console.log(data);
+    const qsData = qs.stringify(data);
 
-    axios
-      .post(
+    try {
+      const response = await axios.post(
         `https://api.calltouch.ru/calls-service/RestAPI/requests/${61988}/register/`,
-        data,
+        qsData,
         {
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "application/x-www-form-urlencoded",
           },
         }
-      )
-      .then((res) => {
-        console.log(res);
-        reset();
-        setLoading(false);
-        setDialogIsOpen(true);
-      })
-      .catch((error) => {
-        console.error(error);
-        setLoading(false);
-      });
+      );
+
+      reset();
+      setLoading(false);
+      setDialogIsOpen(true);
+    } catch (error) {
+      console.error(error);
+      setLoading(false);
+    }
   };
 
   return (
