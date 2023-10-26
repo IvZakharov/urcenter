@@ -13,7 +13,7 @@ export default function Document() {
                        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
                        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
                     
-                       ym(69833578, "init", {
+                       ym(94437381, "init", {
                             clickmap:true,
                             trackLinks:true,
                             accurateTrackBounce:true,
@@ -26,7 +26,7 @@ export default function Document() {
         <noscript>
           <div>
             <img
-              src="https://mc.yandex.ru/watch/69833578"
+              src="https://mc.yandex.ru/watch/94437381"
               style={{ position: "absolute", left: "-9999px" }}
               alt=""
             />
