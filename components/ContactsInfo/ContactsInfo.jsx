@@ -48,10 +48,10 @@ const ContactsInfo = ({
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href={info && info.attributes?.addressLink}
+              href={info && info?.addressLink}
               className={styles.link}
             >
-              {info && info.attributes?.address}
+              {info && info?.address}
             </a>
           </li>
         )}
@@ -95,11 +95,11 @@ const ContactsInfo = ({
             <a
               target={"_blank"}
               rel="noopener noreferrer"
-              href={`${info && info.attributes?.whatsAppLink}`}
+              href={`${info && info?.whatsAppLink}`}
               className={styles.link}
               style={{ whiteSpace: "nowrap" }}
             >
-              {info && info.attributes?.whatsApp}
+              {info && info?.whatsApp}
             </a>
           </li>
         )}
@@ -130,11 +130,11 @@ const ContactsInfo = ({
             <a
               target={"_blank"}
               rel="noopener noreferrer"
-              href={`tel:${info && info.attributes?.phoneLink}`}
+              href={`tel:${info && info?.phoneLink}`}
               className={styles.link}
               style={{ whiteSpace: "nowrap" }}
             >
-              {info && info.attributes?.phone}
+              {info && info?.phone}
             </a>
           </li>
         )}
@@ -176,11 +176,11 @@ const ContactsInfo = ({
               </svg>
             </i>
             <a
-              href={`mailto:${info && info.attributes?.email}`}
+              href={`mailto:${info && info?.email}`}
               className={styles.link}
               style={{ whiteSpace: "nowrap" }}
             >
-              {info && info.attributes?.email}
+              {info && info?.email}
             </a>
           </li>
         )}

@@ -19,32 +19,24 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import Liquidation from "./Liquidation";
 
-const ServicesMain = ({ categories }) => {
+const ServicesMain = ({ menus }) => {
   const matches = useMediaQuery("(min-width: 768px)");
   const arrowPrev = React.useRef(null);
   const arrowNext = React.useRef(null);
   const [isLoading, setIsLoading] = React.useState(true);
-  const [categoriesList, setCategoriesList] = React.useState();
+  const [menusState, setMenusState] = React.useState();
 
   React.useEffect(() => {
-    const basic = categories.find(
-      (obj) => obj.attributes?.name === "Основные услуги"
-    );
-    const changes = categories.find(
-      (obj) => obj.attributes?.name === "Внесение изменений"
-    );
-    const liquidation = categories.find(
-      (obj) => obj.attributes?.name === "Ликвидация"
-    );
-    const registration = categories.find(
-      (obj) => obj.attributes?.name === "Регистрация"
-    );
+    const basic = menus.find((obj) => obj?.title === "Основные услуги");
+    const changes = menus.find((obj) => obj?.title === "Внесение изменений");
+    const liquidation = menus.find((obj) => obj?.title === "Ликвидация");
+    const registration = menus.find((obj) => obj?.title === "Регистрация");
 
-    setCategoriesList({
-      basic: basic.attributes.pages.data,
-      changes: changes.attributes.pages.data,
-      liquidation: liquidation.attributes.pages.data,
-      registration: registration.attributes.pages.data,
+    setMenusState({
+      basic: basic?.links,
+      changes: changes?.links,
+      liquidation: liquidation?.links,
+      registration: registration?.links,
     });
 
     setIsLoading(false);
@@ -68,21 +60,19 @@ const ServicesMain = ({ categories }) => {
           className={styles.servicesSwiper}
         >
           <SwiperSlide>
-            <Basic servicesList={!isLoading ? categoriesList.basic : null} />
+            <Basic servicesList={!isLoading ? menusState.basic : null} />
           </SwiperSlide>
           <SwiperSlide>
-            <Changes
-              servicesList={!isLoading ? categoriesList.changes : null}
-            />
+            <Changes servicesList={!isLoading ? menusState.changes : null} />
           </SwiperSlide>
           <SwiperSlide>
             <Registration
-              servicesList={!isLoading ? categoriesList.registration : null}
+              servicesList={!isLoading ? menusState.registration : null}
             />
           </SwiperSlide>
           <SwiperSlide>
             <Liquidation
-              servicesList={!isLoading ? categoriesList.liquidation : null}
+              servicesList={!isLoading ? menusState.liquidation : null}
             />
           </SwiperSlide>
           <IconButton className={styles.arrowPrev} ref={arrowPrev}>
@@ -97,13 +87,13 @@ const ServicesMain = ({ categories }) => {
         </Swiper>
       ) : (
         <>
-          <Basic servicesList={!isLoading ? categoriesList.basic : null} />
-          <Changes servicesList={!isLoading ? categoriesList.changes : null} />
+          <Basic servicesList={!isLoading ? menusState.basic : null} />
+          <Changes servicesList={!isLoading ? menusState.changes : null} />
           <Registration
-            servicesList={!isLoading ? categoriesList.registration : null}
+            servicesList={!isLoading ? menusState.registration : null}
           />
           <Liquidation
-            servicesList={!isLoading ? categoriesList.liquidation : null}
+            servicesList={!isLoading ? menusState.liquidation : null}
           />
         </>
       )}

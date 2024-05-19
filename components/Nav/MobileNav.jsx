@@ -1,11 +1,9 @@
-import styles from './Nav.module.scss';
-import React from 'react';
-import { useMediaQuery, Grid, Box } from '@mui/material';
-import Link from 'next/link';
+import styles from "./Nav.module.scss";
+import React from "react";
+import { Grid, Box } from "@mui/material";
+import Link from "next/link";
 
-const MobileNav = ({ onClickClose, categories }) => {
-  const matches = useMediaQuery('(min-width: 1200px)');
-
+const MobileNav = ({ onClickClose, menus }) => {
   return (
     <nav className={styles.mobileNav}>
       <ul>
@@ -13,21 +11,19 @@ const MobileNav = ({ onClickClose, categories }) => {
           <span>Услуги центра </span>
           <Box className={styles.submenu}>
             <Grid container spacing={2}>
-              {categories &&
-                categories.map((page) => (
-                  <Grid item xs={12} md={6} key={page.attributes?.name}>
-                    <h4>{page.attributes?.name}</h4>
+              {menus &&
+                menus.map((menu) => (
+                  <Grid item xs={12} md={6} key={menu._uid}>
+                    <h4>{menu?.title}</h4>
                     <ul>
-                      {page.attributes?.pages.data &&
-                        page.attributes?.pages.data
-                          .sort((a, b) => (a.attributes?.title > b.attributes?.title ? 1 : -1))
-                          .map((item, idx) => (
-                            <li key={idx} onClick={onClickClose}>
-                              <Link href={`/services/${item.attributes?.slug}`}>
-                                <a>{item.attributes?.title}</a>
-                              </Link>
-                            </li>
-                          ))}
+                      {menu?.links &&
+                        menu?.links.map((link) => (
+                          <li key={link._uid} onClick={onClickClose}>
+                            <Link href={`/${link.link.cached_url}`}>
+                              <a>{link.label}</a>
+                            </Link>
+                          </li>
+                        ))}
                     </ul>
                   </Grid>
                 ))}
@@ -35,7 +31,7 @@ const MobileNav = ({ onClickClose, categories }) => {
           </Box>
         </li>
         <li>
-          <Link href={'/contacts'}>
+          <Link href={"/contacts"}>
             <a>КОНТАКТЫ</a>
           </Link>
         </li>

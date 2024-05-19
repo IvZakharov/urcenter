@@ -1,6 +1,39 @@
 import "../styles/globals.scss";
+import { storyblokInit, apiPlugin } from "@storyblok/react";
 import Script from "next/script";
 import NextNProgress from "nextjs-progressbar";
+import Page from "../components/Page/Page";
+import AboutServices from "../components/AboutServices/AboutServices";
+import NoteSection from "../components/NoteSection/NoteSection";
+import SituationsSection from "../components/SituationsSection/SituationsSection";
+import PriceSection from "../components/PriceSection/PriceSection";
+import GuaranteesSection from "../components/GuaranteesSection/GuaranteesSection";
+import ResultSection from "../components/ResultSection/ResultSection";
+import WhatNeedsSection from "../components/WhatNeedsSection/WhatNeedsSection";
+import BenefitSection from "../components/BenefitSection/BenefitSection";
+import TablePrice from "../components/TablePrice/TablePrice";
+
+const components = {
+  page: Page,
+  aboutService: AboutServices,
+  note: NoteSection,
+  price: PriceSection,
+  benefits: BenefitSection,
+  guarantee: GuaranteesSection,
+  result: ResultSection,
+  whatNeed: WhatNeedsSection,
+  sectionWithList: SituationsSection,
+  priceTable: TablePrice,
+};
+
+storyblokInit({
+  accessToken: "RoxgST4n0lWQXrvSEyfVVQtt",
+  apiOptions: {
+    region: "ap",
+  },
+  use: [apiPlugin],
+  components,
+});
 
 const myApp = ({ Component, pageProps }) => {
   return (

@@ -13,8 +13,8 @@ export const MainLayout = ({
   metaTitle,
   metaDescription,
   keywords,
-  categories,
   info,
+  menus,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
@@ -27,17 +27,17 @@ export const MainLayout = ({
         <meta property="og:image" content="/img/head/meta.jpg" />
       </Head>
       <Header
-        categories={categories}
+        menus={menus}
         info={info}
         onClickOpen={() => setMobileMenuOpen(true)}
       />
 
       <div className="main">{children}</div>
-      <LetsTalk whatsappLink={info.attributes.whatsAppLink} />
+      <LetsTalk whatsappLink={info.whatsAppLink} />
       <Footer info={info} />
 
       <MobileMenu
-        categories={categories}
+        menus={menus}
         info={info}
         open={mobileMenuOpen}
         onClickClose={() => setMobileMenuOpen(false)}

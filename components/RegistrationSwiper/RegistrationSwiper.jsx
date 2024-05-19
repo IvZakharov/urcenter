@@ -1,15 +1,26 @@
-import styles from './RegistrationSwiper.module.scss';
-import React from 'react';
-import { useMediaQuery, Box, IconButton, Container, Typography } from '@mui/material';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import { Pagination, Navigation } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
-import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
+import styles from "./RegistrationSwiper.module.scss";
+import React from "react";
+import {
+  useMediaQuery,
+  Box,
+  IconButton,
+  Container,
+  Typography,
+} from "@mui/material";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Pagination, Navigation } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
+import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
 
-const RegistrationSwiper = ({ price, tableRows }) => {
-  const matches = useMediaQuery('(min-width: 768px)');
+const RegistrationSwiper = ({
+  economyPrice,
+  standartPrice,
+  fullPrice,
+  tableRows,
+}) => {
+  const matches = useMediaQuery("(min-width: 768px)");
   const arrowPrev = React.useRef(null);
   const arrowNext = React.useRef(null);
 
@@ -29,12 +40,13 @@ const RegistrationSwiper = ({ price, tableRows }) => {
           loop={false}
           slidesPerView={matches ? 2 : 1}
           modules={[Navigation]}
-          autoHeight={true}>
+          autoHeight={true}
+        >
           <SwiperSlide>
             <Box className={styles.item}>
               <Box className={styles.flex}>
                 <h2 className={styles.title}>Эконом</h2>
-                <span className={styles.price}>{price.economyPrice} ₽</span>
+                <span className={styles.price}>{economyPrice} ₽</span>
               </Box>
               <ul className={styles.list}>
                 {tableRows &&
@@ -42,10 +54,10 @@ const RegistrationSwiper = ({ price, tableRows }) => {
                     (obj, idx) =>
                       obj.econom && (
                         <li key={idx}>
-                          <span>{obj.name}</span>{' '}
-                          <CheckRoundedIcon sx={{ color: 'primary.main' }} />
+                          <span>{obj.name}</span>{" "}
+                          <CheckRoundedIcon sx={{ color: "primary.main" }} />
                         </li>
-                      ),
+                      )
                   )}
               </ul>
             </Box>
@@ -55,7 +67,7 @@ const RegistrationSwiper = ({ price, tableRows }) => {
             <Box className={styles.item}>
               <Box className={styles.flex}>
                 <h2 className={styles.title}>Стандарт</h2>
-                <span className={styles.price}>{price.standartPrice} ₽</span>
+                <span className={styles.price}>{standartPrice} ₽</span>
               </Box>
               <ul className={styles.list}>
                 {tableRows &&
@@ -63,10 +75,10 @@ const RegistrationSwiper = ({ price, tableRows }) => {
                     (obj, idx) =>
                       obj.standart && (
                         <li key={idx}>
-                          <span>{obj.name}</span>{' '}
-                          <CheckRoundedIcon sx={{ color: 'primary.main' }} />
+                          <span>{obj.name}</span>{" "}
+                          <CheckRoundedIcon sx={{ color: "primary.main" }} />
                         </li>
-                      ),
+                      )
                   )}
               </ul>
             </Box>
@@ -76,7 +88,7 @@ const RegistrationSwiper = ({ price, tableRows }) => {
             <Box className={styles.item}>
               <Box className={styles.flex}>
                 <h2 className={styles.title}>Полный</h2>
-                <span className={styles.price}>{price.fullPrice} ₽</span>
+                <span className={styles.price}>{fullPrice} ₽</span>
               </Box>
               <ul className={styles.list}>
                 {tableRows &&
@@ -84,22 +96,22 @@ const RegistrationSwiper = ({ price, tableRows }) => {
                     (obj, idx) =>
                       obj.full && (
                         <li key={idx}>
-                          <span>{obj.name}</span>{' '}
-                          <CheckRoundedIcon sx={{ color: 'primary.main' }} />
+                          <span>{obj.name}</span>{" "}
+                          <CheckRoundedIcon sx={{ color: "primary.main" }} />
                         </li>
-                      ),
+                      )
                   )}
               </ul>
             </Box>
           </SwiperSlide>
 
           <IconButton className={styles.arrowPrev} ref={arrowPrev}>
-            <ArrowLeftIcon sx={{ color: 'primary.main' }} fontSize={'large'} />
+            <ArrowLeftIcon sx={{ color: "primary.main" }} fontSize={"large"} />
           </IconButton>
           <IconButton className={styles.arrowNext} ref={arrowNext}>
             <ArrowLeftIcon
-              sx={{ color: 'primary.main', transform: 'rotate(180deg)' }}
-              fontSize={'large'}
+              sx={{ color: "primary.main", transform: "rotate(180deg)" }}
+              fontSize={"large"}
             />
           </IconButton>
         </Swiper>

@@ -1,19 +1,20 @@
-import styles from './ResultSection.module.scss';
-import React from 'react';
-import { useMediaQuery, Container, Grid, Box, Button } from '@mui/material';
-import Image from 'next/image';
-import imageSvg from './img/1.svg';
+import styles from "./ResultSection.module.scss";
+import React from "react";
+import { useMediaQuery, Container, Grid, Box, Button } from "@mui/material";
+import Image from "next/image";
+import imageSvg from "./img/1.svg";
 
-const ResultSection = ({ description }) => {
-  const matches = useMediaQuery('(min-width: 768px)');
+const ResultSection = ({ blok }) => {
+  const matches = useMediaQuery("(min-width: 768px)");
+  const { text } = blok;
 
   return (
     <section className={styles.resultSection}>
       <Container>
         <Box className={styles.inner}>
-          <Box maxWidth={400} margin={matches ? 0 : '0 auto'}>
+          <Box maxWidth={400} margin={matches ? 0 : "0 auto"}>
             <h2 className={styles.title}>РЕЗУЛЬТАТ:</h2>
-            <p className={styles.description}>{description}</p>
+            <p className={styles.description}>{text}</p>
           </Box>
           <Box className={styles.imgWrap}>
             <Image src={imageSvg} width={170} height={170} />

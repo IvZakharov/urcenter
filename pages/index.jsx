@@ -1,19 +1,16 @@
 import { MainLayout } from "../layouts/MainLayout";
-import axios from "axios";
-import { Box, Container, Typography, useMediaQuery } from "@mui/material";
+import { Box, Container, useMediaQuery } from "@mui/material";
 import MainHero from "../components/MainHero/MainHero";
 import Services from "../components/Services";
-import LetsTalk from "../components/LetsTalk/LetsTalk";
-import { fetchAPI } from "../lib/api";
+import { getStoryblokApi } from "@storyblok/react";
 
-const Home = ({ info, categories }) => {
-  const matches = useMediaQuery("(min-width: 768px)");
+const Home = ({ info }) => {
   const matchesLg = useMediaQuery("(min-width: 1200px)");
 
   return (
     <MainLayout
-      categories={categories}
-      info={info}
+      menus={info?.content?.menus}
+      info={info?.content}
       metaTitle={"Юридический центр города Москвы"}
       metaDescription={"Юридический центр города Москвы"}
     >
@@ -27,23 +24,24 @@ const Home = ({ info, categories }) => {
       <Box paddingY={matchesLg ? 0 : 3}></Box>
       <MainHero />
 
-      <Services categories={categories} />
+      <Services menus={info?.content?.menus} />
     </MainLayout>
   );
 };
 
 export async function getStaticProps() {
-  const [infoRes, categoriesRes] = await Promise.all([
-    fetchAPI("/info"),
-    fetchAPI("/categories", { populate: "deep" }),
-  ]);
+  let sbParams = {
+    version: "draft",
+  };
+
+  const storyblokApi = getStoryblokApi();
+  let global = await storyblokApi.get(`cdn/stories/global`, sbParams);
 
   return {
     props: {
-      info: infoRes.data,
-      categories: categoriesRes.data,
+      info: global?.data ? global.data.story : false,
     },
-    revalidate: 10,
+    revalidate: 1800,
   };
 }
 

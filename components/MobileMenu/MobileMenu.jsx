@@ -11,7 +11,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="left" ref={ref} {...props} />;
 });
 
-const MobileMenu = ({ onClickClose, open, categories, info }) => {
+const MobileMenu = ({ onClickClose, open, menus, info }) => {
   const matches = useMediaQuery("(min-width: 768px)");
 
   return (
@@ -38,7 +38,7 @@ const MobileMenu = ({ onClickClose, open, categories, info }) => {
         </Box>
         <Box mb={3}>
           {" "}
-          <MobileNav onClickClose={onClickClose} categories={categories} />
+          <MobileNav onClickClose={onClickClose} menus={menus} />
         </Box>
         <ContactsInfo info={info} email address phone whatsApp />
       </Box>

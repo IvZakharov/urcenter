@@ -4,14 +4,15 @@ import { Box, Container, Grid, Typography, useMediaQuery } from "@mui/material";
 import ServicesHero from "../components/ServicesHero/ServicesHero";
 import { fetchAPI } from "../lib/api";
 import ContactsInfo from "../components/ContactsInfo/ContactsInfo";
+import { getStoryblokApi } from "@storyblok/react";
 
-const Contacts = ({ info, categories }) => {
+const Contacts = ({ info }) => {
   const matches = useMediaQuery("(min-width: 768px)");
 
   return (
     <MainLayout
-      categories={categories}
-      info={info}
+      menus={info?.content?.menus}
+      info={info?.content}
       metaTitle={"Контакты"}
       metaDescription={"Юридический центр города Москвы"}
     >
@@ -24,7 +25,13 @@ const Contacts = ({ info, categories }) => {
           <Grid container spacing={matches ? 24 : 8}>
             <Grid item xs={12} md={4}>
               <Box sx={{ maxWidth: matches ? "auto" : "250px" }}>
-                <ContactsInfo address info={info} email phone whatsApp />
+                <ContactsInfo
+                  address
+                  info={info?.content}
+                  email
+                  phone
+                  whatsApp
+                />
               </Box>
             </Grid>
             <Grid item xs={12} md={8}>
@@ -73,18 +80,18 @@ const Contacts = ({ info, categories }) => {
 };
 
 export async function getStaticProps() {
-  // Run API calls in parallel
-  const [infoRes, categoriesRes] = await Promise.all([
-    fetchAPI("/info"),
-    fetchAPI("/categories", { populate: "deep" }),
-  ]);
+  let sbParams = {
+    version: "draft",
+  };
+
+  const storyblokApi = getStoryblokApi();
+  let global = await storyblokApi.get(`cdn/stories/global`, sbParams);
 
   return {
     props: {
-      info: infoRes.data,
-      categories: categoriesRes.data,
+      info: global?.data ? global.data.story : false,
     },
-    revalidate: 1,
+    revalidate: 1800,
   };
 }
 

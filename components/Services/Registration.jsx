@@ -19,10 +19,10 @@ const Registration = ({ servicesList }) => {
             <Box mb={3}>
               <ul className={styles.list}>
                 {servicesList
-                  ? servicesList.map((obj) => (
-                      <li key={obj.id}>
-                        <Link href={`/services/${obj.attributes?.slug}`}>
-                          <a>{obj.attributes?.title}</a>
+                  ? servicesList.map((link) => (
+                      <li key={link._uid}>
+                        <Link href={`/${link.link.cached_url}`}>
+                          <a>{link?.label}</a>
                         </Link>
                       </li>
                     ))
